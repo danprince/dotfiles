@@ -1,4 +1,7 @@
 #!/bin/bash
 
+# install neobundle
+curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+
 # link vimrc file
 ln -s $(pwd)/vimrc ~/.vimrc -f
