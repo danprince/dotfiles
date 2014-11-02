@@ -1,4 +1,4 @@
-gitfiles
+vimfiles
 ========
 
 My vim configs/plugins
