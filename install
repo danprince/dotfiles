@@ -5,3 +5,6 @@ curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.s
 
 # link vimrc file
 ln -s $(pwd)/vimrc ~/.vimrc -f
+
+# link bashrc
+ln -s $(pwd)/bashrc ~/.bashrc -f
