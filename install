@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # link vimrc file
-ln -s $(pwd)/vimrc ~/.vimrc
+ln -s $(pwd)/vimrc ~/.vimrc -f
