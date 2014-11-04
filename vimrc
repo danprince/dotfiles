@@ -23,6 +23,7 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'tristen/vim-sparkup'
 NeoBundle 'tristen/vim-sparkup'
 NeoBundle 'othree/html5.vim'
+NeoBundle 'mustache/vim-mustache-handlebars'
 
 " Required:
 call neobundle#end()
@@ -63,9 +64,12 @@ nmap <C-p> :bprev<CR>
 
 " NERDTree configurations
 nmap \e :NERDTreeToggle<CR>
-autocmd vimenter * NERDTree
-autocmd vimenter * if !argc() | NERDTree | endif
-autocmd VimEnter * wincmd p
+nmap <silent> <C-n> :NERDTreeToggle<CR>
+
+" Thse commands will start NERDTree by default
+"autocmd vimenter * NERDTree
+"autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd VimEnter * wincmd p
 let g:NERDTreeWinSize = 20
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 

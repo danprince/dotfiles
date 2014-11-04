@@ -98,7 +98,7 @@ fi
 alias ..='cd ..'
 alias du='du -kh'
 alias df='df -kTh'
-alias ls='ls -h --color'
+alias ls='ls -h --color=auto'
 alias lx='ls -lXB'        # sort by extension
 alias lk='ls -lSr'        # sort by size
 alias lt='ls -ltr'        # sort by date
