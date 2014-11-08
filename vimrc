@@ -21,7 +21,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'tristen/vim-sparkup'
-NeoBundle 'tristen/vim-sparkup'
+NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'mustache/vim-mustache-handlebars'
 
@@ -37,7 +37,7 @@ set nocompatible
 syntax on
 
 filetype plugin indent on
-color jellybeans
+colorscheme jellybeans
 
 set expandtab
 set tabstop=2
@@ -58,12 +58,15 @@ set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set pastetoggle=<F2>
 
+" Map leader key
+let mapleader = ","
+
 " Cycle between open buffers
 nmap <C-n> :bnext<CR>
 nmap <C-p> :bprev<CR>
 
 " NERDTree configurations
-nmap \e :NERDTreeToggle<CR>
+nmap <leader>e :NERDTreeToggle<CR>
 nmap <silent> <C-n> :NERDTreeToggle<CR>
 
 " Thse commands will start NERDTree by default
