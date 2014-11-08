@@ -16,7 +16,12 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Add or remove your Bundles here:
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'rking/ag.vim'
+NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tmhedberg/matchit'
+NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'pangloss/vim-javascript'
@@ -59,14 +64,14 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set pastetoggle=<F2>
 
 " Map leader key
-let mapleader = ","
+let mapleader=","
 
 " Cycle between open buffers
 nmap <C-n> :bnext<CR>
 nmap <C-p> :bprev<CR>
 
 " NERDTree configurations
-nmap <leader>e :NERDTreeToggle<CR>
+nmap <F5> :NERDTreeToggle<CR>
 nmap <silent> <C-n> :NERDTreeToggle<CR>
 
 " Thse commands will start NERDTree by default
