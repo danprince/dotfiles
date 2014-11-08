@@ -1,10 +1,19 @@
 #!/bin/bash
 
-# install neobundle
-curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+# install neobundle (if not installed)
+if [ ! -d ~/.vim/bundle/neobundle.vim ]; then
+  curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+fi
 
-# link vimrc file
+# (uses -f flag to link, even if
+# the symlink already exists)
+
+# link vimrc
 ln -s $(pwd)/vimrc ~/.vimrc -f
 
 # link bashrc
 ln -s $(pwd)/bashrc ~/.bashrc -f
+
+# link tmux conf
+ln -s $(pwd)/tmux.conf ~/.tmux.conf -f
+

@@ -81,9 +81,6 @@ nmap <silent> <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeWinSize = 20
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" Alias ejs to html
-au BufNewFile,BufRead *.ejs set filetype=html
-
 " Airline symbols
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
@@ -91,45 +88,22 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.space = "\ua0"
 
-" Hexmode stuff
-" nnoremap <C-H> :Hexmode<CR>
-" inoremap <C-H> <Esc>:Hexmode<CR>
-" vnoremap <C-H> :<C-U>Hexmode<CR>
 
-" ex command for toggling hex mode
-command -bar Hexmode call ToggleHex()
-
-" helper function for toggling hex
-function ToggleHex()
-  let l:modified=&mod
-  let l:oldreadonly=&readonly
-  let &readonly=0
-  let l:oldmodifiable=&modifiable
-  let &modifiable=1
-  if !exists("b:editHex") || !b:editHex
-    " save old options
-    let b:oldft=&ft
-    let b:oldbin=&bin
-    " set new options
-    setlocal binary " make sure it overrides textwidth
-    let &ft="xxd"
-    " set status
-    let b:editHex=1
-    " switch to hex editor
-    %!xxd
+" Relative Line Numbers toggle
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
   else
-    "restore old options
-    let &ft=b:oldft
-    if !b:oldbin
-      setlocal nobinary
-    endif
-    " set status
-    let b:editHex=0
-    " return to normal editing
-    %!xxd -r
+    set relativenumber
   endif
-  " restore values for modified and read only
-  let &mod=l:modified
-  let &readonly=l:oldreadonly
-  let &modifiable=l:oldmodifiable
-endfunction
+endfunc
+
+" turn on relative line numbers
+nnoremap <C-n> :call NumberToggle()<cr>
+
+
+" File Type Aliases
+" -----------------
+
+" Alias ejs to html
+au BufNewFile,BufRead *.ejs set filetype=html
