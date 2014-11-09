@@ -70,9 +70,21 @@ let mapleader=","
 nmap <C-n> :bnext<CR>
 nmap <C-p> :bprev<CR>
 
+" stop K showing manpages
+vnoremap K k
+
+" use tab to jump between matching things
+nnoremap <Tab> %
+
+" CtrlP ignore some dirs
+let g:ctrlp_custom_ignore = 'node_modules\|vendor\|git'
+
 " NERDTree configurations
 nmap <F5> :NERDTreeToggle<CR>
 nmap <silent> <C-n> :NERDTreeToggle<CR>
+
+" TMUX background fix
+set term=screen-256color
 
 " Thse commands will start NERDTree by default
 "autocmd vimenter * NERDTree
@@ -99,7 +111,7 @@ function! NumberToggle()
 endfunc
 
 " turn on relative line numbers
-nnoremap <C-n> :call NumberToggle()<cr>
+nnoremap <C-n> :call NumberToggle()<CR>
 
 
 " File Type Aliases

@@ -43,6 +43,7 @@ xterm*|rxvt*)
     ;;
 esac
 
+PS1="\w\$ "
 
 # ------
 # Colors
