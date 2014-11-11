@@ -37,46 +37,58 @@ call neobundle#end()
 NeoBundleCheck
 "End NeoBundle Scripts-------------------------
 
-set nocompatible
+" turn on syntax highlighting
 syntax on
-
+" recognize file types for
+" indentation and plugins
 filetype plugin indent on
 colorscheme jellybeans
 
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set cursorline
-set nowrap
-set number
-set ignorecase
-set autoindent
-set copyindent
-set smarttab
-set title
-set nobackup
-set noswapfile
+set expandtab         " turn tabs into spaces
+set tabstop=2         " make tabs 2 wide
+set shiftwidth=2      " make shifts 2 spaces
+set cursorline        " highlight cursorline
+set nowrap            " stop text wrapping
+set number            " show line numbers
+set ignorecase        " ignore case in searches
+set autoindent        " copy indent from current line
+set copyindent        " copy structure of existing lines
+set smarttab          " treat spaces like tabs
+set title             " show file name in window
+set nobackup          " no backup before write
+set noswapfile        " no .swp madness
 
-" Display extra whitespace
-set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
-set pastetoggle=<F2>
-
-" Map leader key
+" map leader key
 let mapleader=","
 
-" Cycle between open buffers
+" convert to pastemode
+set pastetoggle=<F2>
+
+" make extra whitespace visible
+set list
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
+
+" cycle between open buffers
 nmap <C-n> :bnext<CR>
 nmap <C-p> :bprev<CR>
 
 " stop K showing manpages
+" prevents accidents with
+" shift and home keys
 vnoremap K k
 
 " use tab to jump between matching things
 nnoremap <Tab> %
 
+
+" Plugin Configuration
+" --------------------
+
 " CtrlP ignore some dirs
-let g:ctrlp_custom_ignore = 'node_modules\|vendor\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|vendor\|git|static\'
+
+" show airline without nerdtree
+set laststatus=2
 
 " NERDTree configurations
 nmap <F5> :NERDTreeToggle<CR>
@@ -98,19 +110,6 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
-
-
-" Relative Line Numbers toggle
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    set relativenumber
-  endif
-endfunc
-
-" turn on relative line numbers
-nnoremap <C-n> :call NumberToggle()<CR>
 
 
 " File Type Aliases
