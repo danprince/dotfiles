@@ -14,6 +14,7 @@ call neobundle#begin(expand('/home/dan/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
+NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'rking/ag.vim'
@@ -68,10 +69,6 @@ set pastetoggle=<F2>
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
-" cycle between open buffers
-nmap <C-n> :bnext<CR>
-nmap <C-p> :bprev<CR>
-
 " stop K showing manpages
 " prevents accidents with
 " shift and home keys
@@ -91,7 +88,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|vendor\|git|static\'
 set laststatus=2
 
 " NERDTree configurations
-nmap <F5> :NERDTreeToggle<CR>
+nmap <silent> <F5> :NERDTreeToggle<CR>
 nmap <silent> <C-n> :NERDTreeToggle<CR>
 
 " TMUX background fix
@@ -110,6 +107,7 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
+let g:bufferline_echo = 0
 
 
 " File Type Aliases

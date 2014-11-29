@@ -43,7 +43,7 @@ xterm*|rxvt*)
     ;;
 esac
 
-PS1="\w\$ "
+  PS1="\w\\e[34m$\e[00m "
 
 # ------
 # Colors
@@ -128,6 +128,14 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# Path variables
+# Move computer specific path variables out of this profile
+# and into a new location.
+
+if [ -f ~/.bash_path ]; then
+    . ~/.bash_path
+fi
+
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -144,3 +152,4 @@ fi
 export EDITOR=vim
 export TERM="xterm-256color"
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
