@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# use for absolute symlinks
+pwd=$(pwd)
+
 # install neobundle (if not installed)
 if [ ! -d ~/.vim/bundle/neobundle.vim ]; then
   curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
@@ -9,11 +12,15 @@ fi
 # the symlink already exists)
 
 # link vimrc
-ln -s $(pwd)/vimrc ~/.vimrc -f
+ln -s $pwd/vimrc ~/.vimrc -f
+
+# link vim filetype plugins
+ln -s $pwd/vim/ftplugin ~/.vim/ftplugin -f
 
 # link bashrc
-ln -s $(pwd)/bashrc ~/.bashrc -f
+ln -s $pwd/bashrc ~/.bashrc -f
 
 # link tmux conf
-ln -s $(pwd)/tmux.conf ~/.tmux.conf -f
+ln -s $pwd/tmux.conf ~/.tmux.conf -f
+
 

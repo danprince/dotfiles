@@ -21,6 +21,7 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-markdown'
 NeoBundle 'tmhedberg/matchit'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
@@ -29,6 +30,10 @@ NeoBundle 'tristen/vim-sparkup'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'mustache/vim-mustache-handlebars'
+NeoBundle 'reedes/vim-pencil'
+NeoBundle 'reedes/vim-colors-pencil'
+NeoBundle 'reedes/vim-litecorrect'
+NeoBundle 'reedes/vim-lexical'
 
 " Required:
 call neobundle#end()
