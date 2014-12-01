@@ -44,6 +44,7 @@ xterm*|rxvt*)
 esac
 
 PS1="\w\e[34m\]$\e[00m\] "
+export PS1="\w\[$(tput setaf 4)\]$ \[$(tput sgr0)\]\[$(tput sgr0)\]"
 
 # ------
 # Colors
