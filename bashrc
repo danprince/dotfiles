@@ -43,7 +43,7 @@ xterm*|rxvt*)
     ;;
 esac
 
-  PS1="\w\\e[34m$\e[00m "
+PS1="\w\e[34m\]$\e[00m\] "
 
 # ------
 # Colors
