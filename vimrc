@@ -14,7 +14,6 @@ call neobundle#begin(expand('/home/dan/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
-NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'rking/ag.vim'
@@ -27,7 +26,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'tristen/vim-sparkup'
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'reedes/vim-pencil'

@@ -43,7 +43,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-PS1="\w\e[34m\]$\e[00m\] "
 export PS1="\w\[$(tput setaf 4)\]$ \[$(tput sgr0)\]\[$(tput sgr0)\]"
 
 # ------
@@ -81,7 +80,6 @@ On_White='\e[47m'       # White
 # special colors
 NC="\e[m"               # Color Reset
 ALERT=${BWhite}${On_Red} # Bold White on red background
-
 
 # ---------------------
 # Test Connection Types
