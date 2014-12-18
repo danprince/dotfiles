@@ -18,6 +18,9 @@ shopt -s histappend histreedit histverify
 shopt -s extglob
 shopt -s globstar
 
+# vi mode
+set -o vi
+
 # ---------------
 # Set Bash Prompt
 # ---------------
