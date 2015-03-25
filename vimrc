@@ -26,14 +26,17 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tristen/vim-sparkup'
 NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'ap/vim-css-color'
+NeoBundle 'christoomey/vim-tmux-navigator'
 " languages
 NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'gkz/vim-ls'
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'moll/vim-node'
+NeoBundle 'digitaltoad/vim-jade.git'
 " writing tools
 NeoBundle 'reedes/vim-pencil'
-NeoBundle 'reedes/vim-colors-pencil'
 NeoBundle 'reedes/vim-litecorrect'
 NeoBundle 'reedes/vim-lexical'
 
@@ -81,15 +84,23 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:.
 " shift and home keys
 vnoremap K k
 
-" use tab to jump between matching things
-nnoremap <Tab> %
+" split navigation
+nnoremap <C-J> <C-w><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
+set splitbelow
+set splitright
 
 " Plugin Configuration
 " --------------------
 
 " CtrlP ignore some dirs
-let g:ctrlp_custom_ignore = 'node_modules\|vendor\|git|static\'
+let g:ctrlp_custom_ignore = 'bower_components\|node_modules\|vendor\|.git|static\'
+
+" tab for easy motion
+map <Tab> <Plug>(easymotion-prefix)
 
 " show airline without nerdtree
 set laststatus=2

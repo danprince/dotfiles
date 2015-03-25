@@ -101,13 +101,14 @@ fi
 alias ..='cd ..'
 alias du='du -kh'
 alias df='df -kTh'
-alias ls='ls -h --color=auto'
+alias ls='ls -h --color=auto --group-directories-first'
 alias lx='ls -lXB'        # sort by extension
 alias lk='ls -lSr'        # sort by size
 alias lt='ls -ltr'        # sort by date
 alias ll='ls -lv --group-directories-first'
 alias tree='tree -Csuh'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias v='vim'
 
 # enable color support of ls
 if [ -x /usr/bin/dircolors ]; then
