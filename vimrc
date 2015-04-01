@@ -17,14 +17,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'rking/ag.vim'
-NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-markdown'
-NeoBundle 'tmhedberg/matchit'
-NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'tristen/vim-sparkup'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'christoomey/vim-tmux-navigator'
@@ -35,10 +30,12 @@ NeoBundle 'gkz/vim-ls'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'moll/vim-node'
 NeoBundle 'digitaltoad/vim-jade.git'
+NeoBundle 'brandonbloom/vim-factor'
 " writing tools
 NeoBundle 'reedes/vim-pencil'
 NeoBundle 'reedes/vim-litecorrect'
 NeoBundle 'reedes/vim-lexical'
+" expired
 
 " Required:
 call neobundle#end()
@@ -69,15 +66,19 @@ set title             " show file name in window
 set nobackup          " no backup before write
 set noswapfile        " no .swp madness
 
-" map leader key
-let mapleader=","
-
-" convert to pastemode
+" switch into paste mode
 set pastetoggle=<F2>
 
 " make extra whitespace visible
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
+
+" split configurations
+set splitbelow
+set splitright
+
+" map leader key
+let mapleader=","
 
 " stop K showing manpages
 " prevents accidents with
@@ -90,8 +91,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-set splitbelow
-set splitright
 
 " Plugin Configuration
 " --------------------
@@ -99,25 +98,11 @@ set splitright
 " CtrlP ignore some dirs
 let g:ctrlp_custom_ignore = 'bower_components\|node_modules\|vendor\|.git|static\'
 
-" tab for easy motion
-map <Tab> <Plug>(easymotion-prefix)
-
-" show airline without nerdtree
-set laststatus=2
-
-" NERDTree configurations
-nmap <silent> <F5> :NERDTreeToggle<CR>
-nmap <silent> <C-n> :NERDTreeToggle<CR>
-
 " TMUX background fix
 set term=screen-256color
 
-" Thse commands will start NERDTree by default
-"autocmd vimenter * NERDTree
-"autocmd vimenter * if !argc() | NERDTree | endif
-"autocmd VimEnter * wincmd p
-let g:NERDTreeWinSize = 20
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" Show airline
+set laststatus=2
 
 " Airline symbols
 let g:airline_powerline_fonts = 1
@@ -133,3 +118,4 @@ let g:bufferline_echo = 0
 
 " Alias ejs to html
 au BufNewFile,BufRead *.ejs set filetype=html
+
