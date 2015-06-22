@@ -27,10 +27,9 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'gkz/vim-ls'
-NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'danprince/vim-ngdoc'
 NeoBundle 'moll/vim-node'
 NeoBundle 'digitaltoad/vim-jade.git'
-NeoBundle 'brandonbloom/vim-factor'
 " writing tools
 NeoBundle 'reedes/vim-pencil'
 NeoBundle 'reedes/vim-litecorrect'
@@ -50,6 +49,8 @@ syntax on
 " recognize file types for
 " indentation and plugins
 filetype plugin indent on
+
+set background=dark
 colorscheme jellybeans
 
 set expandtab         " turn tabs into spaces
@@ -63,8 +64,10 @@ set autoindent        " copy indent from current line
 set copyindent        " copy structure of existing lines
 set smarttab          " treat spaces like tabs
 set title             " show file name in window
+set autoread          " reload file on change
 set nobackup          " no backup before write
 set noswapfile        " no .swp madness
+set cc=80             " highlight at 80 chars
 
 " switch into paste mode
 set pastetoggle=<F2>
@@ -78,11 +81,19 @@ set splitbelow
 set splitright
 
 " map leader key
-let mapleader=","
+let mapleader="\<Space>"
+" CtrlP Aliases
+let g:ctrlp_map = '<Leader>o'
+nnoremap <Leader>o :CtrlP<CR>
+nnoremap <Leader>i :CtrlPBuffer<CR>
+map <C-p> <Nop>
 
-" stop K showing manpages
-" prevents accidents with
-" shift and home keys
+" General Purpose
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>s :wq<CR>
+
+" stop K showing manpages (prevents accidents with shift and home keys)
 vnoremap K k
 
 " split navigation
@@ -96,7 +107,10 @@ nnoremap <C-H> <C-W><C-H>
 " --------------------
 
 " CtrlP ignore some dirs
-let g:ctrlp_custom_ignore = 'bower_components\|node_modules\|vendor\|.git|static\'
+let g:ctrlp_custom_ignore = 'bower_components\|node_modules\|vendor\|.git\|bin'
+
+" remove timeout delay on esc
+set timeoutlen=1000 ttimeoutlen=0
 
 " TMUX background fix
 set term=screen-256color
@@ -111,11 +125,3 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.space = "\ua0"
 let g:bufferline_echo = 0
-
-
-" File Type Aliases
-" -----------------
-
-" Alias ejs to html
-au BufNewFile,BufRead *.ejs set filetype=html
-
