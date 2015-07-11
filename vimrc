@@ -1,4 +1,14 @@
-"NeoBundle Scripts-----------------------------
+
+"   __   _( )__,___,_  ____ ___
+"   \ \ / / |  _   _ \|  __/ __|
+"    \ V /| | | | | | | | | (__
+"     \_/ |_|_| |_| |_|_|  \___|
+"
+"         Dan Prince 2015
+"
+" http://github.com/danprince/dotfiles
+
+"NeoBundle Configuration{{{
 if has('vim_starting')
   set nocompatible " Be iMproved
 
@@ -12,8 +22,9 @@ call neobundle#begin(expand('/home/dan/.vim/bundle'))
 " Let NeoBundle manage NeoBundle
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
+"}}}
 
-" general purpose:
+"Plugins {{{
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'rking/ag.vim'
@@ -24,7 +35,6 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'danprince/seti.vim'
-NeoBundle 'altercation/vim-colors-solarized'
 " languages
 NeoBundle 'othree/yajs.vim'
 NeoBundle 'mustache/vim-mustache-handlebars'
@@ -36,15 +46,18 @@ NeoBundle 'digitaltoad/vim-jade.git'
 NeoBundle 'reedes/vim-pencil'
 NeoBundle 'reedes/vim-litecorrect'
 NeoBundle 'reedes/vim-lexical'
+"}}}
 
+"Neobundle Init {{{
 " Required:
 call neobundle#end()
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
-"End NeoBundle Scripts-------------------------
+"}}}
 
+" Appearance {{{
 " recognize file types for indentation and plugins
 filetype plugin indent on
 
@@ -52,7 +65,9 @@ filetype plugin indent on
 syntax on
 set background=dark
 colorscheme seti
+"}}}
 
+" Settings {{{
 set expandtab         " turn tabs into spaces
 set tabstop=2         " make tabs 2 wide
 set shiftwidth=2      " make shifts 2 spaces
@@ -68,7 +83,13 @@ set autoread          " reload file on change
 set nobackup          " no backup before write
 set noswapfile        " no .swp madness
 set cc=80             " highlight at 80 chars
+set foldmethod=marker " fold on triple {
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
+"}}}
 
+" Misc {{{
 " switch into paste mode
 set pastetoggle=<F2>
 
@@ -79,7 +100,9 @@ set listchars=tab:>.,trail:.,extends:…,nbsp:.
 " split configurations
 set splitbelow
 set splitright
+"}}}
 
+" Key Remapping {{{
 " map leader key
 let mapleader="\<Space>"
 
@@ -98,15 +121,20 @@ map <C-p> <Nop>
 " shift and home keys)
 vnoremap K k
 
+" line navigation
+nnoremap H ^
+nnoremap L $
+map J j
+map K k
+
 " split navigation
 nnoremap <C-J> <C-w><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+" }}}
 
-" +----------------------+
-" | Plugin Configuration |
-" +----------------------+
+" Plugin Configuration {{{
 
 " ctrlp ignore some dirs
 let g:ctrlp_custom_ignore = 'bower_components\|node_modules\|.git'
@@ -130,8 +158,8 @@ if !exists('g:airline_symbols')
   let g:airline_symbols.space = "\ua0"
 endif
 
+" start automatically
 let g:bufferline_echo = 0
 
-
-
+" }}}
 
