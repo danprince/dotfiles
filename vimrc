@@ -1,6 +1,6 @@
 "NeoBundle Scripts-----------------------------
 if has('vim_starting')
-  set nocompatible               " Be iMproved
+  set nocompatible " Be iMproved
 
   " Required:
   set runtimepath+=/home/dan/.vim/bundle/neobundle.vim/
@@ -13,7 +13,7 @@ call neobundle#begin(expand('/home/dan/.vim/bundle'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Add or remove your Bundles here:
+" general purpose:
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'rking/ag.vim'
@@ -23,18 +23,19 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'danprince/seti.vim'
+NeoBundle 'altercation/vim-colors-solarized'
 " languages
+NeoBundle 'othree/yajs.vim'
 NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'gkz/vim-ls'
-NeoBundle 'danprince/vim-ngdoc'
 NeoBundle 'moll/vim-node'
 NeoBundle 'digitaltoad/vim-jade.git'
 " writing tools
 NeoBundle 'reedes/vim-pencil'
 NeoBundle 'reedes/vim-litecorrect'
 NeoBundle 'reedes/vim-lexical'
-" expired
 
 " Required:
 call neobundle#end()
@@ -44,14 +45,13 @@ call neobundle#end()
 NeoBundleCheck
 "End NeoBundle Scripts-------------------------
 
-" turn on syntax highlighting
-syntax on
-" recognize file types for
-" indentation and plugins
+" recognize file types for indentation and plugins
 filetype plugin indent on
 
+" turn on syntax highlighting
+syntax on
 set background=dark
-colorscheme jellybeans
+colorscheme seti
 
 set expandtab         " turn tabs into spaces
 set tabstop=2         " make tabs 2 wide
@@ -74,7 +74,7 @@ set pastetoggle=<F2>
 
 " make extra whitespace visible
 set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
+set listchars=tab:>.,trail:.,extends:…,nbsp:.
 
 " split configurations
 set splitbelow
@@ -82,18 +82,20 @@ set splitright
 
 " map leader key
 let mapleader="\<Space>"
-" CtrlP Aliases
-let g:ctrlp_map = '<Leader>o'
-nnoremap <Leader>o :CtrlP<CR>
-nnoremap <Leader>i :CtrlPBuffer<CR>
-map <C-p> <Nop>
 
-" General Purpose
+" leader aliases
+let g:ctrlp_map = '<Leader>o'
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>s :wq<CR>
+nnoremap <Leader>o :CtrlP<CR>
+nnoremap <Leader>i :CtrlPBuffer<CR>
 
-" stop K showing manpages (prevents accidents with shift and home keys)
+" unset ctrlp alias
+map <C-p> <Nop>
+
+" stop K showing manpages (prevents accidents with
+" shift and home keys)
 vnoremap K k
 
 " split navigation
@@ -102,26 +104,34 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" +----------------------+
+" | Plugin Configuration |
+" +----------------------+
 
-" Plugin Configuration
-" --------------------
-
-" CtrlP ignore some dirs
-let g:ctrlp_custom_ignore = 'bower_components\|node_modules\|vendor\|.git\|bin'
+" ctrlp ignore some dirs
+let g:ctrlp_custom_ignore = 'bower_components\|node_modules\|.git'
 
 " remove timeout delay on esc
 set timeoutlen=1000 ttimeoutlen=0
 
-" TMUX background fix
-set term=screen-256color
+" tmux background fix
+"set term=screen-256color
+"set t_Co=256
 
-" Show airline
+" show airline
 set laststatus=2
 
-" Airline symbols
+" fix airline symbols
 let g:airline_powerline_fonts = 1
+let g:airline_theme = 'murmur'
+
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
+  let g:airline_symbols.space = "\ua0"
 endif
-let g:airline_symbols.space = "\ua0"
+
 let g:bufferline_echo = 0
+
+
+
+
