@@ -153,9 +153,12 @@ fi
 
 # exports
 export EDITOR=vim
-#export TERM="xterm-256color"
+export TERM="xterm-256color"
 
 # visible cursor colour
-echo -ne '\e]12;#FF1DE2\a'
+echo -ne '\e]12;#33859d\a'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export NVM_DIR="/home/dan/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

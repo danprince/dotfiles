@@ -34,7 +34,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'danprince/seti.vim'
+NeoBundle 'whatyouhide/vim-gotham'
 " languages
 NeoBundle 'othree/yajs.vim'
 NeoBundle 'mustache/vim-mustache-handlebars'
@@ -46,6 +46,8 @@ NeoBundle 'digitaltoad/vim-jade.git'
 NeoBundle 'reedes/vim-pencil'
 NeoBundle 'reedes/vim-litecorrect'
 NeoBundle 'reedes/vim-lexical'
+NeoBundle 'junegunn/goyo.vim'
+NeoBundle 'junegunn/limelight.vim'
 "}}}
 
 "Neobundle Init {{{
@@ -64,7 +66,7 @@ filetype plugin indent on
 " turn on syntax highlighting
 syntax on
 set background=dark
-colorscheme seti
+colorscheme gotham
 "}}}
 
 " Settings {{{
@@ -143,15 +145,14 @@ let g:ctrlp_custom_ignore = 'bower_components\|node_modules\|.git'
 set timeoutlen=1000 ttimeoutlen=0
 
 " tmux background fix
-"set term=screen-256color
-"set t_Co=256
+set t_Co=256
 
 " show airline
 set laststatus=2
 
 " fix airline symbols
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'murmur'
+let g:airline_theme = 'gotham'
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
