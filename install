@@ -23,9 +23,10 @@ ln -s $pwd/bashrc ~/.bashrc -f
 # link tmux conf
 ln -s $pwd/tmux.conf ~/.tmux.conf -f
 
-# make neovim symlinks
-ln -s ~/.vim ~/.nvim -f
-ln -s ~/.vimrc ~/.nvimrc -f
+# make neovim symlinks (:help nvim_from_vim)
+mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+ln -s ~/.vim $XDG_CONFIG_HOME/nvim
+ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 
 # link awesome config
 mkdir -p ~/.config
