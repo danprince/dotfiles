@@ -15,7 +15,7 @@ fi
 ln -s $pwd/vimrc ~/.vimrc -f
 
 # link vim filetype plugins
-ln -s $pwd/vim/ftplugin ~/.nvim/ftplugin -f
+ln -s $pwd/vim/ftplugin ~/.vim/ftplugin -f
 
 # link bashrc
 ln -s $pwd/bashrc ~/.bashrc -f
@@ -23,6 +23,10 @@ ln -s $pwd/bashrc ~/.bashrc -f
 # link tmux conf
 ln -s $pwd/tmux.conf ~/.tmux.conf -f
 
-mkdir -p ~/.config/awesome/themes
-ln -s $pwd/awesome/rc.lua ~/.config/awesome/rc.lua -f
-ln -s $pwd/awesome/chromebook ~/.config/awesome/themes/chromebook -f
+# make neovim symlinks
+ln -s ~/.vim ~/.nvim -f
+ln -s ~/.vimrc ~/.nvimrc -f
+
+# link awesome config
+mkdir -p ~/.config
+ln -s $pwd/awesome ~/.config/awesome -f
