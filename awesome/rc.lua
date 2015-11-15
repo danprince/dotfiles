@@ -45,7 +45,7 @@ end
 beautiful.init("/home/dan/.config/awesome/themes/chromebook/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "gnome-terminal --hide-menubar"
+terminal = "rxvt-unicode"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 browser = "chromium-browser"
