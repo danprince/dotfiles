@@ -1,7 +1,13 @@
-# ============================================= #
-# Personal .bashrc file
-# By Dan Prince
-# ============================================= #
+#    _               _
+#   | |             | |
+#   | |__   __ _ ___| |__  _ __ ___
+#   | '_ \ / _` / __| '_ \| '__/ __|
+#   | |_) | (_| \__ \ | | | | | (__
+#   |_.__/ \__,_|___/_| |_|_|  \___|
+#
+#           Dan Prince 2015
+#
+# http://github.com/danprince/dotfiles
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -108,7 +114,7 @@ alias lt='ls -ltr'        # sort by date
 alias ll='ls -lv --group-directories-first'
 alias tree='tree -Csuh'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-alias v='vim'
+alias v='nvim'
 
 # enable color support of ls
 if [ -x /usr/bin/dircolors ]; then
@@ -162,3 +168,5 @@ echo -ne '\e]12;#33859d\a'
 
 export NVM_DIR="/home/dan/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+nvm use node
+
