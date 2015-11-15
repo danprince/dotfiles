@@ -25,7 +25,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "}}}
 
 "Plugins {{{
-NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'tpope/vim-fugitive'
@@ -85,10 +84,12 @@ set autoread          " reload file on change
 set nobackup          " no backup before write
 set noswapfile        " no .swp madness
 set cc=80             " highlight at 80 chars
+set mouse-=a          " disable mouse navigation
 set foldmethod=marker " fold on triple {
 set foldnestmax=10
 set nofoldenable
 set foldlevel=2
+
 "}}}
 
 " Misc {{{
@@ -153,14 +154,10 @@ set laststatus=2
 " fix airline symbols
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'gotham'
-
+"
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
   let g:airline_symbols.space = "\ua0"
 endif
 
-" start automatically
-let g:bufferline_echo = 0
-
 " }}}
-

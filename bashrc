@@ -165,8 +165,3 @@ export TERM="xterm-256color"
 echo -ne '\e]12;#33859d\a'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-export NVM_DIR="/home/dan/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-nvm use node
-
