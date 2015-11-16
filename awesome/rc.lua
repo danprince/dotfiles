@@ -1,3 +1,13 @@
+--
+--     __ ___      _____  ___  ___  _ __ ___   ___ 
+--    / _` \ \ /\ / / _ \/ __|/ _ \| '_ ` _ \ / _ \
+--   | (_| |\ V  V /  __/\__ \ (_) | | | | | |  __/
+--    \__,_| \_/\_/ \___||___/\___/|_| |_| |_|\___|
+--
+--               Dan Prince 2015
+--
+-- https://github.com/danprince/dotfiles
+
 -- Standard awesome library
 require("awful")
 require("awful.autofocus")
