@@ -159,7 +159,8 @@ fi
 
 # exports
 export EDITOR=vim
-export TERM="xterm-256color"
+export BROWSER=chromium-browser
+#export TERM="xterm-256color"
 
 # visible cursor colour
 echo -ne '\e]12;#33859d\a'
