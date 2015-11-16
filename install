@@ -31,3 +31,6 @@ ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 # link awesome config
 mkdir -p ~/.config
 ln -s $pwd/awesome ~/.config/awesome -f
+
+# link xresources
+ln -s $pwd/Xresources ~/.Xresources -f
