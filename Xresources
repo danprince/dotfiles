@@ -1,3 +1,21 @@
+!  __  ___ __ ___  ___  ___  _   _ _ __ ___ ___  ___ 
+!  \ \/ / '__/ _ \/ __|/ _ \| | | | '__/ __/ _ \/ __|
+!   >  <| | |  __/\__ \ (_) | |_| | | | (_|  __/\__ \
+!  /_/\_\_|  \___||___/\___/ \__,_|_|  \___\___||___/
+!
+!                Dan Prince 2015
+!
+! http://github.com/danprince/dotfiles
+!
+URxvt.scrollBar: false
+URxvt.font: xft:Inconsolata for Powerline:size=13:style=Medium
+URxvt.boldFont: xft:Inconsolata for Powerline:size=13
+URxvt.title: Terminal
+
+!| Gotham Contrib
+!|
+!| Dark terminal colorscheme
+!| From https://github.com/whatyouhide/gotham-contrib
 *.foreground:   #98d1ce
 *.background:   #0a0f14
 *.cursorColor:  #98d1ce
@@ -26,5 +44,4 @@
 *.color7:       #98d1ce
 *.color15:      #d3ebe9
 
-URxvt.scrollBar: false
-URxvt.font: xft:Inconsolata for Powerline:size=13:style=Medium
+
