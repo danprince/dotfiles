@@ -1,20 +1,19 @@
 #!/bin/bash
 
-# use for absolute symlinks
+# Dotfiles Install
+#
+# Running this script will symlink these dotfiles to their appropriate
+# locations, making the directories if they do not exist. It uses the
+# -f flag to link, so it can be run, even if the symlinks already exists.
+
+# to use absolute symlinks
 pwd=$(pwd)
-
-# install neobundle (if not installed)
-if [ ! -d ~/.vim/bundle/neobundle.vim ]; then
-  curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
-fi
-
-# (uses -f flag to link, even if
-# the symlink already exists)
 
 # link vimrc
 ln -s $pwd/vimrc ~/.vimrc -f
 
 # link vim filetype plugins
+mkdir -p ~/.vim
 ln -s $pwd/vim/ftplugin ~/.vim/ftplugin -f
 
 # link bashrc
@@ -34,3 +33,9 @@ ln -s $pwd/awesome ~/.config/awesome -f
 
 # link xresources
 ln -s $pwd/Xresources ~/.Xresources -f
+
+# install neobundle (if not installed)
+if [ ! -d ~/.vim/bundle/neobundle.vim ]; then
+  curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+fi
+
