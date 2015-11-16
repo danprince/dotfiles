@@ -1,5 +1,5 @@
 --
---     __ ___      _____  ___  ___  _ __ ___   ___ 
+--     __ ___      _____  ___  ___  _ __ ___   ___
 --    / _` \ \ /\ / / _ \/ __|/ _ \| '_ ` _ \ / _ \
 --   | (_| |\ V  V /  __/\__ \ (_) | | | | | |  __/
 --    \__,_| \_/\_/ \___||___/\___/|_| |_| |_|\___|
@@ -261,6 +261,16 @@ root.buttons(awful.util.table.join(
 ))
 -- }}}
 
+-- {{{ Key functions
+function screenshot()
+  local time = os.time()
+  local home = os.getenv("HOME")
+  local path = home .. "/Pictures/" .. time .. ".png"
+  awful.util.spawn_with_shell("import " .. path)
+  naughty.notify({ text=path, title="Screenshot!" })
+end
+--- }}}
+
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
   awful.key({ modkey,       }, "Left",   awful.tag.viewprev     ),
@@ -307,15 +317,13 @@ globalkeys = awful.util.table.join(
   awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
   -- Chromekeys
+  awful.key({ }, "#70",  screenshot),
   awful.key({ }, "#72",  function () awful.util.spawn_with_shell("xbacklight -dec 10") end),
   awful.key({ }, "#73",  function () awful.util.spawn_with_shell("xbacklight -inc 10") end),
   awful.key({ }, "#74",  function () awful.util.spawn_with_shell("amixer set Master toggle") end),
   awful.key({ }, "#75",  function () awful.util.spawn_with_shell("amixer set Master 10%-") end),
   awful.key({ }, "#76",  function () awful.util.spawn_with_shell("amixer set Master 10%+") end),
   awful.key({ }, "#76",  function () awful.util.spawn_with_shell("amixer set Master 10%+") end),
-  awful.key({ }, "#133", function ()
-    -- weird search key
-  end),
 
   awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
@@ -461,6 +469,7 @@ function run_once(cmd)
 end
 
 -- }}}
+
 
 run_once("nm-applet")
 
