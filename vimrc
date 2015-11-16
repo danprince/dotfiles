@@ -31,7 +31,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'ap/vim-css-color'
+NeoBundle 'gorodinskiy/vim-coloresque'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'whatyouhide/vim-gotham'
 " languages
@@ -154,7 +154,7 @@ set laststatus=2
 " fix airline symbols
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'gotham'
-"
+
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
   let g:airline_symbols.space = "\ua0"
