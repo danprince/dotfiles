@@ -27,4 +27,4 @@
 *.color15:      #d3ebe9
 
 URxvt.scrollBar: false
-URxvt.font: xft:Inconsolata for Powerline-g:size=12:style=Medium
+URxvt.font: xft:Inconsolata for Powerline:size=13:style=Medium
