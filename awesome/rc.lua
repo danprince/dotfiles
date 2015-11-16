@@ -49,6 +49,7 @@ terminal = "urxvt"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 browser = "chromium-browser"
+tag_symbol = "●"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -79,7 +80,7 @@ layouts = {
 tags = {}
 for s = 1, screen.count() do
   -- Each screen has its own tag table.
-  tags[s] = awful.tag({ "●", "●", "●" }, s, layouts[1])
+  tags[s] = awful.tag({ tag_symbol, tag_symbol, tag_symbol }, s, layouts[1])
 end
 -- }}}
 
@@ -390,7 +391,7 @@ awful.rules.rules = {
       focus = true,
       keys = clientkeys,
       buttons = clientbuttons
-    } 
+    }
   },
   {
     rule       = { class = "MPlayer" },
