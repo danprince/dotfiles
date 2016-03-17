@@ -16,7 +16,7 @@ theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
-theme.border_width  = "1"
+theme.border_width  = "0"
 theme.border_normal = "#000000"
 theme.border_focus  = "#535d6c"
 theme.border_marked = "#91231c"
@@ -42,7 +42,8 @@ theme.tasklist_disable_icon = true
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
-theme.menu_submenu_icon = "/usr/share/awesome/themes/default/submenu.png"
+theme.menu_border_width = "0"
+theme.menu_submenu_icon = "/home/dan/.config/awesome/themes/chromebook/submenu.png"
 theme.menu_height = "15"
 theme.menu_width  = "100"
 

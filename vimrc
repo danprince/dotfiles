@@ -25,37 +25,26 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "}}}
 
 "Plugins {{{
-NeoBundle 'bling/vim-airline'
-NeoBundle 'rking/ag.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'ervandew/supertab'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-markdown'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'gorodinskiy/vim-coloresque'
-NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'tpope/vim-fireplace'
 NeoBundle 'whatyouhide/vim-gotham'
+" linters
+NeoBundle 'scrooloose/syntastic'
 " languages
-NeoBundle 'othree/yajs.vim'
-NeoBundle 'mustache/vim-mustache-handlebars'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'gkz/vim-ls'
-NeoBundle 'moll/vim-node'
-NeoBundle 'digitaltoad/vim-jade.git'
+NeoBundle 'sheerun/vim-polyglot'
 " writing tools
 NeoBundle 'reedes/vim-pencil'
-NeoBundle 'reedes/vim-litecorrect'
 NeoBundle 'reedes/vim-lexical'
-NeoBundle 'junegunn/goyo.vim'
-NeoBundle 'junegunn/limelight.vim'
 "}}}
 
 "Neobundle Init {{{
 " Required:
 call neobundle#end()
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+NeoBundleCheck " check for uninstalled bundles
 "}}}
 
 " Appearance {{{
@@ -98,7 +87,7 @@ set pastetoggle=<F2>
 
 " make extra whitespace visible
 set list
-set listchars=tab:>.,trail:.,extends:…,nbsp:.
+set listchars=tab:>.,trail:.,extends:$,nbsp:.
 
 " split configurations
 set splitbelow
@@ -116,6 +105,14 @@ nnoremap <Leader>q :q<CR>
 nnoremap <Leader>s :wq<CR>
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>i :CtrlPBuffer<CR>
+nnoremap <Leader>e :e 
+" git leaders
+nnoremap <Leader>a :Git add %<CR>
+nnoremap <Leader>c :Git commit<CR>
+nnoremap <Leader>p :Git push<CR>
+
+" make ctrl-c behave more gracefully
+map <C-c> <Esc>
 
 " unset ctrlp alias
 map <C-p> <Nop>
@@ -123,6 +120,9 @@ map <C-p> <Nop>
 " stop K showing manpages (prevents accidents with
 " shift and home keys)
 vnoremap K k
+
+" stop having to shift
+nnoremap ; :
 
 " line navigation
 nnoremap H ^
@@ -135,12 +135,12 @@ nnoremap <C-J> <C-w><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-" }}}
 
 " Plugin Configuration {{{
 
+
 " ctrlp ignore some dirs
-let g:ctrlp_custom_ignore = 'bower_components\|node_modules\|.git'
+let g:ctrlp_custom_ignore = 'bower_components\|node_modules\|_site\|\.git\|build\|out\|compiled'
 
 " remove timeout delay on esc
 set timeoutlen=1000 ttimeoutlen=0
@@ -148,16 +148,10 @@ set timeoutlen=1000 ttimeoutlen=0
 " tmux background fix
 set t_Co=256
 
-" show airline
-set laststatus=2
-
-" fix airline symbols
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'gotham'
-
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-  let g:airline_symbols.space = "\ua0"
-endif
+" enable syntastic checkers
+let g:syntastic_javascript_checkers = ['eslint']
+let b:syntastic_javascript_eslint_exec = 'eslint'
+" disable for fast start
+let g:syntastic_check_on_open=0
 
 " }}}

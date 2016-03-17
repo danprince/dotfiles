@@ -9,7 +9,7 @@
 -- https://github.com/danprince/dotfiles
 
 -- Standard awesome library
-require("awful")
+require("awful") 
 require("awful.autofocus")
 require("awful.rules")
 -- Theme handling library
@@ -59,6 +59,7 @@ terminal = "urxvt"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 browser = "chromium-browser"
+explorer = "thunar"
 tag_symbol = "●"
 
 -- Default modkey.
@@ -155,6 +156,18 @@ function BatteryWidget()
   refresh:start();
 
   return textbox
+end
+
+function TodoNotify()
+  local todo_file = os.getenv("HOME") .. "/todo"
+  local todos = io.lines(todo_file)
+
+  naughty.notify({ title = "todo" })
+  for todo in todos do
+    if type(todo) == "string" then
+      naughty.notify({ text = todo })
+    end
+  end
 end
 
 battery_widget = BatteryWidget()
@@ -262,12 +275,14 @@ root.buttons(awful.util.table.join(
 -- }}}
 
 -- {{{ Key functions
-function screenshot()
+function screenshot(options)
+  local flags = options or ""
   local time = os.time()
   local home = os.getenv("HOME")
   local path = home .. "/Pictures/" .. time .. ".png"
-  awful.util.spawn_with_shell("import " .. path)
-  naughty.notify({ text=path, title="Screenshot!" })
+
+  awful.util.spawn_with_shell("import " .. flags .. " " .. path)
+  --naughty.notify({ text=path, title="Screenshot!" })
 end
 --- }}}
 
@@ -316,14 +331,20 @@ globalkeys = awful.util.table.join(
   awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
   awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
+  -- Shortcuts
+  awful.key({ modkey,           }, "t",     TodoNotify),
+  awful.key({ modkey,           }, "b",     function () awful.util.spawn(browser) end),
+  awful.key({ modkey,           }, "o",     function () awful.util.spawn(explorer) end),
+
   -- Chromekeys
-  awful.key({ }, "#70",  screenshot),
+  awful.key({ modkey          }, "#70", function () screenshot() end),
+  awful.key({ modkey, "Shift" }, "#70", function () screenshot("-window root") end),
   awful.key({ }, "#72",  function () awful.util.spawn_with_shell("xbacklight -dec 10") end),
   awful.key({ }, "#73",  function () awful.util.spawn_with_shell("xbacklight -inc 10") end),
-  awful.key({ }, "#74",  function () awful.util.spawn_with_shell("amixer set Master toggle") end),
-  awful.key({ }, "#75",  function () awful.util.spawn_with_shell("amixer set Master 10%-") end),
-  awful.key({ }, "#76",  function () awful.util.spawn_with_shell("amixer set Master 10%+") end),
-  awful.key({ }, "#76",  function () awful.util.spawn_with_shell("amixer set Master 10%+") end),
+  awful.key({ }, "#74",  function () awful.util.spawn_with_shell("amixer set IEC958 toggle") end),
+  awful.key({ }, "#75",  function () awful.util.spawn_with_shell("amixer set IEC958 10%-") end),
+  awful.key({ }, "#76",  function () awful.util.spawn_with_shell("amixer set IEC958 10%+") end),
+  awful.key({ }, "#76",  function () awful.util.spawn_with_shell("amixer set IEC958 10%+") end),
 
   awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
@@ -343,7 +364,7 @@ clientkeys = awful.util.table.join(
   awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill() end),
   awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle),
   awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
-  awful.key({ modkey,           }, "o",      awful.client.movetoscreen),
+  --awful.key({ modkey,           }, "o",      awful.client.movetoscreen),
   awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw() end),
   awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop end),
   -- The client currently has the input focus, so it cannot be
@@ -408,7 +429,8 @@ awful.rules.rules = {
       border_color = beautiful.border_normal,
       focus = true,
       keys = clientkeys,
-      buttons = clientbuttons
+      buttons = clientbuttons,
+      size_hints_honor = false
     }
   },
   {

@@ -8,8 +8,7 @@
 ! http://github.com/danprince/dotfiles
 !
 URxvt.scrollBar: false
-URxvt.font: xft:Inconsolata for Powerline:size=13:style=Medium
-URxvt.boldFont: xft:Inconsolata for Powerline:size=13
+URxvt.font: xft:Inconsolata for Powerline-g:size=13:style=Medium
 URxvt.title: Terminal
 
 !| Gotham Contrib
@@ -43,5 +42,4 @@ URxvt.title: Terminal
 
 *.color7:       #98d1ce
 *.color15:      #d3ebe9
-
 
