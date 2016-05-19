@@ -9,6 +9,10 @@
 !
 URxvt.scrollBar: false
 URxvt.font: xft:Inconsolata for Powerline-g:size=13:style=Medium
+URxvt*font: xft:mononoki-Regular:size=12
+URxvt*boldFont: xft:mononoki-Bold:bold:size=12
+URxvt*italicFont: xft:mononoki-Italic:italic:size=12
+URxvt*boldItalicFont: xft:mononoki-BoldItalic:bold:italic:size=12
 URxvt.title: Terminal
 
 !| Gotham Contrib

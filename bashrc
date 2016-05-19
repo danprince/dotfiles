@@ -31,7 +31,7 @@ set -o vi
 # Set Bash Prompt
 # ---------------
 
-export PS1="\w\[$(tput setaf 4)\]$ \[$(tput sgr0)\]\[$(tput sgr0)\]"
+export PS1="\w\[$(tput setaf 4)\]$ \[$(tput sgr0)\]"
 
 
 # ------
@@ -149,3 +149,6 @@ export GOPATH=$HOME/dev/go
 echo -ne '\e]12;#33859d\a'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export NVM_DIR="/home/dan/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

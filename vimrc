@@ -8,7 +8,6 @@
 "
 " http://github.com/danprince/dotfiles
 
-"NeoBundle Configuration{{{
 if has('vim_starting')
   set nocompatible " Be iMproved
 
@@ -22,32 +21,26 @@ call neobundle#begin(expand('/home/dan/.vim/bundle'))
 " Let NeoBundle manage NeoBundle
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
-"}}}
 
-"Plugins {{{
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-markdown'
-NeoBundle 'tpope/vim-fireplace'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'whatyouhide/vim-gotham'
-" linters
-NeoBundle 'scrooloose/syntastic'
-" languages
 NeoBundle 'sheerun/vim-polyglot'
-" writing tools
 NeoBundle 'reedes/vim-pencil'
 NeoBundle 'reedes/vim-lexical'
-"}}}
+"NeoBundle 'vim-airline/vim-airline'
+"NeoBundle 'tpope/vim-fireplace'
+"NeoBundle 'scrooloose/syntastic'
+NeoBundle '/home/dan/dev/dan/vim-restack', { 'type' : 'nosync' }
 
-"Neobundle Init {{{
 " Required:
 call neobundle#end()
 NeoBundleCheck " check for uninstalled bundles
-"}}}
 
-" Appearance {{{
 " recognize file types for indentation and plugins
 filetype plugin indent on
 
@@ -61,13 +54,13 @@ colorscheme gotham
 set expandtab         " turn tabs into spaces
 set tabstop=2         " make tabs 2 wide
 set shiftwidth=2      " make shifts 2 spaces
+set smarttab          " treat spaces like tabs
 set cursorline        " highlight cursorline
 set nowrap            " stop text wrapping
 set number            " show line numbers
 set ignorecase        " ignore case in searches
 set autoindent        " copy indent from current line
 set copyindent        " copy structure of existing lines
-set smarttab          " treat spaces like tabs
 set title             " show file name in window
 set autoread          " reload file on change
 set nobackup          " no backup before write
@@ -79,9 +72,6 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=2
 
-"}}}
-
-" Misc {{{
 " switch into paste mode
 set pastetoggle=<F2>
 
@@ -92,9 +82,8 @@ set listchars=tab:>.,trail:.,extends:$,nbsp:.
 " split configurations
 set splitbelow
 set splitright
-"}}}
 
-" Key Remapping {{{
+
 " map leader key
 let mapleader="\<Space>"
 
@@ -110,6 +99,8 @@ nnoremap <Leader>e :e
 nnoremap <Leader>a :Git add %<CR>
 nnoremap <Leader>c :Git commit<CR>
 nnoremap <Leader>p :Git push<CR>
+" quick highlight toggle
+nnoremap <Leader>h :nohl<CR>
 
 " make ctrl-c behave more gracefully
 map <C-c> <Esc>
@@ -127,17 +118,19 @@ nnoremap ; :
 " line navigation
 nnoremap H ^
 nnoremap L $
-map J j
-map K k
+map J <C-d>
+map K <C-u>
 
+" terminal navigation
+tnoremap <C-J> <C-\><C-n><C-J>
+tnoremap <C-K> <C-\><C-n><C-K>
+tnoremap <C-L> <C-\><C-n><C-L>
+tnoremap <C-H> <C-\><C-n><C-H>
 " split navigation
 nnoremap <C-J> <C-w><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-" Plugin Configuration {{{
-
 
 " ctrlp ignore some dirs
 let g:ctrlp_custom_ignore = 'bower_components\|node_modules\|_site\|\.git\|build\|out\|compiled'
@@ -148,10 +141,15 @@ set timeoutlen=1000 ttimeoutlen=0
 " tmux background fix
 set t_Co=256
 
-" enable syntastic checkers
-let g:syntastic_javascript_checkers = ['eslint']
-let b:syntastic_javascript_eslint_exec = 'eslint'
-" disable for fast start
-let g:syntastic_check_on_open=0
+" show airline
+"set laststatus=2
 
-" }}}
+" fix airline symbols
+let g:airline_powerline_fonts = 0
+let g:airline_theme = 'gotham'
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+  let g:airline_symbols.space = "\ua0"
+endif
+

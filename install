@@ -27,9 +27,9 @@ mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
 ln -s ~/.vim $XDG_CONFIG_HOME/nvim
 ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 
-# link awesome config
-mkdir -p ~/.config
-ln -s $pwd/awesome ~/.config/awesome -f
+# link i3 config
+ln -s $pwd/i3 ~/.i3
+ln -s $pwd/i3blocks.conf ~/.i3blocks.conf
 
 # link xresources
 ln -s $pwd/Xresources ~/.Xresources -f
