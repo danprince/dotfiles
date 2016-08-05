@@ -26,12 +26,15 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-markdown'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'whatyouhide/vim-gotham'
 NeoBundle 'sheerun/vim-polyglot'
+NeoBundle 'raichoo/purescript-vim'
 NeoBundle 'reedes/vim-pencil'
 NeoBundle 'reedes/vim-lexical'
+NeoBundle 'reedes/vim-litecorrect'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'junegunn/goyo.vim'
 "NeoBundle 'vim-airline/vim-airline'
 "NeoBundle 'tpope/vim-fireplace'
 "NeoBundle 'scrooloose/syntastic'
@@ -48,6 +51,7 @@ filetype plugin indent on
 syntax on
 set background=dark
 colorscheme gotham
+hi StatusLine ctermbg=8 ctermfg=4
 "}}}
 
 " Settings {{{
@@ -67,15 +71,11 @@ set nobackup          " no backup before write
 set noswapfile        " no .swp madness
 set cc=80             " highlight at 80 chars
 set mouse-=a          " disable mouse navigation
-set foldmethod=marker " fold on triple {
-set foldnestmax=10
-set nofoldenable
-set foldlevel=2
 
 " switch into paste mode
 set pastetoggle=<F2>
 
-" make extra whitespace visible
+" make trailing whitespace visible
 set list
 set listchars=tab:>.,trail:.,extends:$,nbsp:.
 
@@ -83,30 +83,30 @@ set listchars=tab:>.,trail:.,extends:$,nbsp:.
 set splitbelow
 set splitright
 
-
 " map leader key
 let mapleader="\<Space>"
 
 " leader aliases
-let g:ctrlp_map = '<Leader>o'
+"let g:ctrlp_map = '<Leader>o'
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>s :wq<CR>
 nnoremap <Leader>o :CtrlP<CR>
-nnoremap <Leader>i :CtrlPBuffer<CR>
-nnoremap <Leader>e :e 
+nnoremap <Leader>i :CtrlPMRUFiles<CR>
+nnoremap <Leader>n :!node %<CR>
+nnoremap <Leader>t :vsp<CR>:term node<CR>
+
 " git leaders
 nnoremap <Leader>a :Git add %<CR>
 nnoremap <Leader>c :Git commit<CR>
 nnoremap <Leader>p :Git push<CR>
 " quick highlight toggle
 nnoremap <Leader>h :nohl<CR>
+" quick toggle goyo
+nnoremap <Leader>g :Goyo<CR>
 
 " make ctrl-c behave more gracefully
 map <C-c> <Esc>
-
-" unset ctrlp alias
-map <C-p> <Nop>
 
 " stop K showing manpages (prevents accidents with
 " shift and home keys)
@@ -140,16 +140,4 @@ set timeoutlen=1000 ttimeoutlen=0
 
 " tmux background fix
 set t_Co=256
-
-" show airline
-"set laststatus=2
-
-" fix airline symbols
-let g:airline_powerline_fonts = 0
-let g:airline_theme = 'gotham'
-
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-  let g:airline_symbols.space = "\ua0"
-endif
 

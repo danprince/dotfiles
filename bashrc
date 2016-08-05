@@ -96,7 +96,8 @@ alias tree='tree -Csuh'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias v='nvim'
 alias lein='rlwrap lein'
-alias clone='git clone git@github.com:'
+alias copy='xsel -ib'
+alias open='xdg-open'
 
 # enable color support of ls
 if [ -x /usr/bin/dircolors ]; then
@@ -146,9 +147,11 @@ export BROWSER=chromium-browser
 export GOPATH=$HOME/dev/go
 
 # visible cursor colour
-echo -ne '\e]12;#33859d\a'
+#echo -ne '\e]12;#33859d\a'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 export NVM_DIR="/home/dan/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

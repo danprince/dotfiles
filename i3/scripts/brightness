@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+brightness=$(xbacklight)
+level=${brightness%.*}
+
+if [[ $level -lt 100 ]]; then
+  echo -e "\n\n"
+  if [[ $level -lt 60 ]]; then
+    echo -e "#333333\n"
+  elif [[ $level -lt 40 ]]; then
+    echo -e "#777777\n"
+  elif [[ $level -lt 20 ]]; then
+    echo -e "#aaaaaa\n"
+  fi
+fi
+

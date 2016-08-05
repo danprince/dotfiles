@@ -31,7 +31,10 @@ floating_modifier $mod
 bindsym $mod+Return exec urxvt
 
 # start a browser
-bindsym $mod+b exec chromium-browser
+bindsym $mod+b exec google-chrome
+
+# start a writing terminal
+bindsym $mod+u exec urxvt -name writing
 
 # start a file manager
 bindsym $mod+o exec thunar
@@ -182,4 +185,4 @@ bar {
 
 # startup applications
 exec --no-startup-id nm-applet
-
+exec --no-startup-id feh --bg-scale /home/dan/Pictures/pro-dark.png
