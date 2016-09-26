@@ -27,7 +27,10 @@ mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
 ln -s ~/.vim $XDG_CONFIG_HOME/nvim
 ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 
-# link i3 config
-#ln -s $pwd/i3 ~/.i3
-#ln -s $pwd/i3blocks.conf ~/.i3blocks.conf
+# link kwm config
+mkdir -p ~/.kwm
+ln -s $pwd/kwm/kwmrc ~/.kwm/kwmrc
+
+# link hyperterm config
+ln -s $pwd/hyperterm.js ~/.hyperterm.js
 

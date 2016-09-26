@@ -22,7 +22,6 @@ shopt -s no_empty_cmd_completion
 shopt -s cmdhist
 shopt -s histappend histreedit histverify
 shopt -s extglob
-shopt -s globstar
 
 # vi mode
 set -o vi
@@ -87,7 +86,7 @@ fi
 alias ..='cd ..'
 alias du='du -kh'
 alias df='df -kTh'
-alias ls='ls -h --color=auto --group-directories-first'
+alias ls='ls -G'
 alias lx='ls -lXB'        # sort by extension
 alias lk='ls -lSr'        # sort by size
 alias lt='ls -ltr'        # sort by date
