@@ -12,37 +12,40 @@ if has('vim_starting')
   set nocompatible " Be iMproved
 
   " Required:
-  set runtimepath+=/home/dan/.vim/bundle/neobundle.vim/
+  set runtimepath+=/Users/dan/Apps/repos/github.com/Shougo/dein.vim
 endif
 
 " Required:
-call neobundle#begin(expand('/home/dan/.vim/bundle'))
+call dein#begin('/Users/dan/Apps')
 
-" Let NeoBundle manage NeoBundle
+" Let call dein#add(manage NeoBundle
 " Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+call dein#add('Shougo/dein.vim')
 
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'ervandew/supertab'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'whatyouhide/vim-gotham'
-NeoBundle 'sheerun/vim-polyglot'
-NeoBundle 'raichoo/purescript-vim'
-NeoBundle 'reedes/vim-pencil'
-NeoBundle 'reedes/vim-lexical'
-NeoBundle 'reedes/vim-litecorrect'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'junegunn/goyo.vim'
-"NeoBundle 'vim-airline/vim-airline'
-"NeoBundle 'tpope/vim-fireplace'
-"NeoBundle 'scrooloose/syntastic'
-NeoBundle '/home/dan/dev/dan/vim-restack', { 'type' : 'nosync' }
+call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('christoomey/vim-tmux-navigator')
+call dein#add('ervandew/supertab')
+call dein#add('tpope/vim-fugitive')
+call dein#add('tpope/vim-surround')
+call dein#add('whatyouhide/vim-gotham')
+call dein#add('nicholasc/vim-seti')
+call dein#add('sheerun/vim-polyglot')
+call dein#add('raichoo/purescript-vim')
+call dein#add('reedes/vim-pencil')
+call dein#add('reedes/vim-lexical')
+call dein#add('reedes/vim-litecorrect')
+call dein#add('tpope/vim-markdown')
+call dein#add('junegunn/goyo.vim')
+"call dein#add('vim-airline/vim-airline')
+"call dein#add('tpope/vim-fireplace')
+"call dein#add('scrooloose/syntastic')
 
 " Required:
-call neobundle#end()
-NeoBundleCheck " check for uninstalled bundles
+call dein#end()
+
+if dein#check_install()
+  call dein#install()
+endif
 
 " recognize file types for indentation and plugins
 filetype plugin indent on
@@ -121,11 +124,6 @@ nnoremap L $
 map J <C-d>
 map K <C-u>
 
-" terminal navigation
-tnoremap <C-J> <C-\><C-n><C-J>
-tnoremap <C-K> <C-\><C-n><C-K>
-tnoremap <C-L> <C-\><C-n><C-L>
-tnoremap <C-H> <C-\><C-n><C-H>
 " split navigation
 nnoremap <C-J> <C-w><C-J>
 nnoremap <C-K> <C-W><C-K>

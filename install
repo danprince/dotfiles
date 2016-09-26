@@ -10,17 +10,17 @@
 pwd=$(pwd)
 
 # link vimrc
-ln -s $pwd/vimrc ~/.vimrc -f
+ln -s $pwd/vimrc ~/.vimrc
 
 # link vim filetype plugins
 mkdir -p ~/.vim
-ln -s $pwd/vim/ftplugin ~/.vim/ftplugin -f
+ln -s $pwd/vim/ftplugin ~/.vim/ftplugin
 
 # link bashrc
-ln -s $pwd/bashrc ~/.bashrc -f
+ln -s $pwd/bashrc ~/.bashrc
 
 # link tmux conf
-ln -s $pwd/tmux.conf ~/.tmux.conf -f
+ln -s $pwd/tmux.conf ~/.tmux.conf
 
 # make neovim symlinks (:help nvim_from_vim)
 mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
@@ -28,14 +28,6 @@ ln -s ~/.vim $XDG_CONFIG_HOME/nvim
 ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 
 # link i3 config
-ln -s $pwd/i3 ~/.i3
-ln -s $pwd/i3blocks.conf ~/.i3blocks.conf
-
-# link xresources
-ln -s $pwd/Xresources ~/.Xresources -f
-
-# install neobundle (if not installed)
-if [ ! -d ~/.vim/bundle/neobundle.vim ]; then
-  curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
-fi
+#ln -s $pwd/i3 ~/.i3
+#ln -s $pwd/i3blocks.conf ~/.i3blocks.conf
 
