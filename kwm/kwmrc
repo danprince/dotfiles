@@ -1,5 +1,5 @@
-kwmc config padding 30 10 10 10
-kwmc config gap 5 5
+kwmc config padding 20 0 0 0
+kwmc config gap 0 0
 
 // Tiling mode (bsp | monocle | float)
 kwmc config tiling bsp

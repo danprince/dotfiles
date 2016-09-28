@@ -16,7 +16,7 @@ if has('vim_starting')
 endif
 
 " Required:
-call dein#begin('/Users/dan/Apps')
+call dein#begin('/Users/dan/Apps/')
 
 " Let call dein#add(manage NeoBundle
 " Required:
@@ -36,6 +36,8 @@ call dein#add('reedes/vim-lexical')
 call dein#add('reedes/vim-litecorrect')
 call dein#add('tpope/vim-markdown')
 call dein#add('junegunn/goyo.vim')
+call dein#add('itchyny/vim-gitbranch')
+call dein#add('flowtype/vim-flow')
 "call dein#add('vim-airline/vim-airline')
 "call dein#add('tpope/vim-fireplace')
 "call dein#add('scrooloose/syntastic')
@@ -107,6 +109,9 @@ nnoremap <Leader>p :Git push<CR>
 nnoremap <Leader>h :nohl<CR>
 " quick toggle goyo
 nnoremap <Leader>g :Goyo<CR>
+" quick toggle goyo
+nnoremap <Leader>f :FlowMake<CR>
+nnoremap <Leader>t :FlowType<CR>
 
 " make ctrl-c behave more gracefully
 map <C-c> <Esc>
@@ -128,7 +133,10 @@ map K <C-u>
 nnoremap <C-J> <C-w><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+"nnoremap <C-H> <C-W><C-H>
+
+" osx is weird
+nnoremap <bs> <C-W><C-H>
 
 " ctrlp ignore some dirs
 let g:ctrlp_custom_ignore = 'bower_components\|node_modules\|_site\|\.git\|build\|out\|compiled'
@@ -139,3 +147,8 @@ set timeoutlen=1000 ttimeoutlen=0
 " tmux background fix
 set t_Co=256
 
+" disable flow on save
+let g:flow#enable = 0
+
+set statusline=%{gitbranch#name()}\ 
+set statusline+=%f

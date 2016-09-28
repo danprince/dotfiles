@@ -140,7 +140,7 @@ if ! shopt -oq posix; then
 fi
 
 # exports
-export EDITOR=vim
+export EDITOR=nvim
 export BROWSER=chromium-browser
 #export TERM="xterm-256color"
 export GOPATH=$HOME/dev/go
