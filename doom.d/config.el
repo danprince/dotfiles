@@ -9,6 +9,9 @@
  mac-option-key-is-meta nil
  mac-option-modifier nil)
 
+(setq custom-file "~/.doom.d/custom.el")
+(load custom-file)
+
 (map!
  :n "-" #'dired-jump
  :n "J" #'evil-next-line
