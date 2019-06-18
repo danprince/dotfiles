@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+repo=$(pwd)
+
+ln -f -s $repo/bash_profile ~/.bash_profile
+ln -f -s $repo/doom.d ~/.doom.d
+ln -f -s $repo/tmux.conf ~/.tmux.conf
