@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# This script needs to be run once when setting up on a fresh
+# machine.
+
+# add 24-bit color support to the terminal
+tic -x -o ~/.terminfo $(pwd)/xterm-24bit.terminfo
