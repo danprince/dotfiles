@@ -11,6 +11,15 @@ export TERM=xterm-24bit
 # adds doom binaries to path
 PATH=$PATH:~/.emacs.d/bin
 
+export GOPATH=~/dev/go
+
+# adds go binaries to path
+PATH=$PATH:/usr/local/go/bin
+PATH=$PATH:$GOPATH/bin
+
+# adds rust binaries to path
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # saner version of ls (brew install coreutils)
 alias ls='gls --color=auto --group-directories-first'
 
