@@ -30,7 +30,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " colorscheme tweaks
-hi VertSplit cterm=NONE ctermbg=NONE ctermfg=LightGrey
-hi LineNr ctermbg=NONE ctermfg=Grey
-hi StatusLine cterm=NONE ctermbg=White ctermfg=DarkGrey
-hi StatusLineNC cterm=NONE ctermbg=White ctermfg=Grey
+hi VertSplit cterm=None ctermbg=None ctermfg=Black
+hi LineNr ctermbg=None ctermfg=Black
+hi StatusLine cterm=None ctermbg=Black ctermfg=White
+hi StatusLineNC cterm=None ctermbg=None ctermfg=DarkGrey

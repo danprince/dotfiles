@@ -10,9 +10,7 @@
   ;; help gui emacs find executables from the shell's PATH
   (exec-path-from-shell-initialize))
 
-(if (string= (getenv "THEME") "light")
-  (setq doom-theme 'doom-solarized-light)
-  (setq doom-theme 'doom-solarized-dark))
+(setq doom-theme 'doom-city-lights)
 
 ;; Keybindings
 
