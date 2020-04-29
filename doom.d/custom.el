@@ -11,6 +11,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(line-number ((t (:inherit default :background "#181E24" :foreground "#384551" :strike-through nil :underline nil :slant normal :weight normal))))
- '(line-number-current-line ((t (:inherit (hl-line default) :foreground "white" :strike-through nil :underline nil :slant normal :weight bold))))
- '(vertical-border ((t (:background "#1D252C" :foreground "#10151C")))))
+)

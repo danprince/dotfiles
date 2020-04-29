@@ -18,6 +18,7 @@ syntax on
 let mapleader="\<Space>"
 nnoremap <Leader><Leader> :buffer 
 nnoremap <Leader>fr :oldfiles<CR> 
+nnoremap - :Explore<CR>
 
 " prevent shift based accidents
 nnoremap H h
