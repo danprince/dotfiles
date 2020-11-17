@@ -20,6 +20,10 @@ PATH=$PATH:$GOPATH/bin
 # adds rust binaries to path
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# adds deno binaries to path
+export DENO_INSTALL="/Users/dan/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
 # saner version of ls (brew install coreutils)
 alias ls='gls --color=auto --group-directories-first'
 
