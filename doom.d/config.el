@@ -9,7 +9,7 @@
   (set-frame-font "Mononoki 15")
   ;; disable option as meta (needed to type # on mac)
   (setq mac-option-modifier nil)
-  ;; help gui emacs find executables from the shell's PATH
+  ;; help emacs find executables from the shell PATH
   (exec-path-from-shell-initialize))
 
 (setq doom-theme 'doom-city-lights)
@@ -27,7 +27,8 @@
  :n "-" #'dired-jump
  :n "J" #'evil-next-line
  :n "K" #'evil-previous-line
- :n "SPC rs" #'tide-rename-symbol)
+ :n "SPC rs" #'tide-rename-symbol
+ :n "SPC rr" #'recompile)
 
 ;; Config
 
@@ -49,6 +50,11 @@
 (remove-hook 'org-mode-hook #'auto-fill-mode)
 (remove-hook 'text-mode-hook #'auto-fill-mode)
 
+;; Fix the clipboard in terminal or daemon Emacs (non-GUI)
+(add-hook! 'tty-setup-hook
+  (defun doom-init-clipboard-in-tty-emacs-h ()
+    (osx-clipboard-mode)))
+
 (add-hook 'text-mode-hook
   (lambda ()
      (visual-line-mode +1)
@@ -63,9 +69,16 @@
   (lambda ()
     (dired-hide-details-mode +1)))
 
+(add-hook 'emacs-lisp-mode-hook
+  (lambda ()
+    (setq tab-width 2)))
+
 (add-hook 'markdown-mode-hook
   (lambda ()
     (writegood-mode)))
+
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.mdx\\'" . markdown-mode))
 
 ;; use slightly taller characters to render the vertical divider
 ;; which makes it appear as a continuous line
@@ -94,3 +107,9 @@
       :background "transparent"
       :underline t
       :foreground "magenta")))
+
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+(setq ns-use-proxy-icon nil)
+(setq frame-title-format " ")
