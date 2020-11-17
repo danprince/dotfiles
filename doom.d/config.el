@@ -12,14 +12,10 @@
   ;; help emacs find executables from the shell PATH
   (exec-path-from-shell-initialize))
 
-(setq doom-theme 'doom-city-lights)
-;;(setq doom-theme 'doom-solarized-light)
+;; Theme
 
-(when (eq doom-theme 'doom-city-lights)
-  (custom-set-faces
-  '(line-number ((t (:inherit default :background "#181E24" :foreground "#384551" :strike-through nil :underline nil :slant normal :weight normal))))
-  '(line-number-current-line ((t (:inherit (hl-line default) :foreground "white" :strike-through nil :underline nil :slant normal :weight bold))))
-  '(vertical-border ((t (:background "#1D252C" :foreground "#10151C"))))))
+(load "~/.doom.d/themes/doom-nyx-theme.el")
+(setq doom-theme 'doom-nyx)
 
 ;; Keybindings
 
