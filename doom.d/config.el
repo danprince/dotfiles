@@ -24,7 +24,11 @@
  :n "J" #'evil-next-line
  :n "K" #'evil-previous-line
  :n "SPC rs" #'tide-rename-symbol
- :n "SPC rr" #'recompile)
+ :n "SPC rr" #'recompile
+
+ :map magit-mode-map
+ :n "-" #'dired-jump)
+
 
 ;; Config
 
