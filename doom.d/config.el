@@ -73,6 +73,11 @@
   (lambda ()
     (setq tab-width 2)))
 
+(add-hook 'julia-mode-hook
+  (lambda ()
+    (setq tab-width 4
+          evil-shift-width 2)))
+
 (add-hook 'markdown-mode-hook
   (lambda ()
     (writegood-mode)))
