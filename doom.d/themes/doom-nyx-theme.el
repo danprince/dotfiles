@@ -182,6 +182,10 @@
    (js2-jsdoc-value
     :foreground fg)
 
+   (markdown-code-face
+    :background bg
+    :extend t)
+
    (org-level-1 :foreground base6 :weight 'bold)
    (org-level-2 :foreground base0 :weight 'bold)
 
