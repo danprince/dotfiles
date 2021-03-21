@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+ln -f -s $(pwd)/tmux.conf ~/.tmux.conf
+ln -f -s $(pwd)/vimrc ~/.vimrc
+ln -f -s $(pwd)/nvim ~/.config/nvim
+ln -f -s $(pwd)/coc-settings.json ~/.config/nvim/coc-settings.json
+ln -f -s $(pwd)/zshrc ~/.zshrc
+ln -f -s $(pwd)/zshenv ~/.zshenv

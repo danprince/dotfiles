@@ -1,0 +1,5 @@
+# ignore installed plugins
+nvim/plugged
+
+# ignore undo history
+nvim/undodir

@@ -1,37 +1,29 @@
-set expandtab
-set shiftwidth=2
-set tabstop=2
-set smarttab
 set nowrap
-set number
-set ignorecase
-set nohlsearch
-set nobackup
-set noswapfile
+set hidden
+set cursorline
 set splitbelow
 set splitright
+set linebreak
 set mouse=a
+set list
+set listchars=trail:.,tab:>-,nbsp:␣
+set wildmenu
+set wildmode=longest:full,full
+set grepprg=git\ grep\ -n\ $*
+set noswapfile
+set nobackup
+set nowritebackup
 set autoindent
-set fillchars+=vert:│
+set expandtab
+set softtabstop=2
+set shiftwidth=2
+set shiftround
+
 syntax on
+filetype plugin on
+filetype indent on
 
 let mapleader="\<Space>"
-nnoremap <Leader><Leader> :buffer 
-nnoremap <Leader>fr :oldfiles<CR> 
-nnoremap - :Explore<CR>
-
-" prevent shift based accidents
-nnoremap H h
-nnoremap J j
-nnoremap K k
-nnoremap L l
-
-" preserve visual selection after indent
-vnoremap < <gv
-vnoremap > >gv
-
-" colorscheme tweaks
-hi VertSplit cterm=None ctermbg=None ctermfg=Black
-hi LineNr ctermbg=None ctermfg=Black
-hi StatusLine cterm=None ctermbg=Black ctermfg=White
-hi StatusLineNC cterm=None ctermbg=None ctermfg=DarkGrey
+nnoremap - :Ex<CR>
+nnoremap [q :cprev<CR>
+nnoremap ]q :cnext<CR>

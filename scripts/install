@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# Install Xcode Command Line Tools
+xcode-select --install
+
+# Install Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install Neovim
+brew install neovim
+
+# Install Tmux
+brew install tmux
+
+# Search
+brew install ripgrep
+
+# Core GNU utils
+brew install coreutils
+
+# Node Version Manager
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+
+# Yarn
+npm install -g yarn
+
+# Prompt to Install Docker
+open https://hub.docker.com/editions/community/docker-ce-desktop-mac/
+read -r
+
+# Prompt to Install iterm2
+open https://iterm2.com/
+read -r

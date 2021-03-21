@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-ln -f -s $(pwd)/bash_profile ~/.bash_profile
-ln -f -s $(pwd)/bash_profile ~/.bashrc
-ln -f -s $(pwd)/doom.d ~/.doom.d
-ln -f -s $(pwd)/tmux.conf ~/.tmux.conf
-ln -f -s $(pwd)/vimrc ~/.vimrc
