@@ -1,1 +1,37 @@
-/Users/dan/dev/dotfiles/coc-settings.json
+{
+  "diagnostic.level": "warning",
+  "diagnostic.warningSign": "",
+  "diagnostic.errorSign": "",
+  "diagnostic.infoSign": "",
+  "git.changedSign.text": "▎",
+  "git.addedSign.text": "▎",
+  "git.removedSign.text": "▎",
+  "git.changeRemovedSign.text": "▎",
+  "suggest.completionItemKindLabels": {
+    "method": "",
+    "function": "",
+    "variable": "",
+    "field": "",
+    "typeParameter": "",
+    "constant": "",
+    "class": "פּ",
+    "interface": "ﴯ",
+    "struct": "ﳶ",
+    "event": "",
+    "operator": "±",
+    "module": "",
+    "property": "襁",
+    "value": "",
+    "enum": "",
+    "enumMember": "",
+    "reference": "",
+    "keyword": "",
+    "file": "",
+    "folder": "",
+    "color": "",
+    "unit": "塞",
+    "snippet": "",
+    "text": "",
+    "default": ""
+  }
+}

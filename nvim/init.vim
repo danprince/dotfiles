@@ -6,7 +6,6 @@ let g:coc_global_extensions = ['coc-git', 'coc-tsserver']
 
 Plug 'embark-theme/vim', { 'as': 'embark' }
 Plug 'tpope/vim-vinegar'
-Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -158,17 +157,6 @@ nmap <silent> gh :call CocActionAsync('doHover')<CR>
 " Enable self closing tags
 let g:closetag_filenames = '*.html,*.jsx,*.tsx'
 let g:closetag_xhtml_filenames = '*.jsx,*.tsx'
-
-" TreeSitter config
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" or a list of languages
-  highlight = {
-    enable = true, -- false will disable the whole extension
-    disable = {},  -- list of language that will be disabled
-  },
-}
-EOF
 
 " Custom commands
 command! -range=1 Decaf w !decaffeinate | pbcopy
