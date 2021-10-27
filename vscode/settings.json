@@ -1,0 +1,49 @@
+{
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.colorTheme": "GitHub Light",
+    "editor.minimap.enabled": false,
+    "editor.renderControlCharacters": true,
+    "breadcrumbs.enabled": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.tabSize": 2,
+    "editor.renderWhitespace": "trailing",
+    "security.workspace.trust.banner": "never",
+    "workbench.activityBar.visible": false,
+    "workbench.preferredLightColorTheme": "GitHub Light",
+    "workbench.preferredDarkColorTheme": "GitHub Dark",
+    "workbench.iconTheme": null,
+    "workbench.tips.enabled": false,
+    "workbench.editor.showTabs": false,
+    "workbench.settings.editor": "json",
+    "window.autoDetectColorScheme": true,
+    "telemetry.telemetryLevel": "off",
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "<leader>"],
+            "commands": ["workbench.action.quickOpen"]
+        },
+        {
+            "before": ["<leader>", "t"],
+            "commands": ["workbench.action.togglePanel"]
+        },
+        {
+            "before": ["<leader>", "g", "g"],
+            "commands": ["workbench.view.scm"]
+        },
+        {
+            "before": ["-"],
+            "commands": ["workbench.view.explorer"]
+        },
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [">"],
+            "commands": ["editor.action.indentLines"]
+        },
+        {
+            "before": ["<"],
+            "commands": ["editor.action.outdentLines"]
+        }
+    ],
+}

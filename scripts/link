@@ -1,8 +1,15 @@
 #!/usr/bin/env bash
 
-ln -f -s $(pwd)/tmux.conf ~/.tmux.conf
-ln -f -s $(pwd)/vimrc ~/.vimrc
-ln -f -s $(pwd)/nvim ~/.config/nvim
-ln -f -s $(pwd)/zshrc ~/.zshrc
-ln -f -s $(pwd)/zshenv ~/.zshenv
-ln -f -s $(pwd)/spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json
+root=$(pwd)
+
+mkdir -p ~/.config
+
+ln -f -s $root/tmux.conf ~/.tmux.conf
+ln -f -s $root/vimrc ~/.vimrc
+ln -f -s $root/nvim ~/.config/nvim
+ln -f -s $root/zshrc ~/.zshrc
+ln -f -s $root/zshenv ~/.zshenv
+ln -f -s $root/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -f -s $root/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
+
+#ln -f -s $(root)/spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json

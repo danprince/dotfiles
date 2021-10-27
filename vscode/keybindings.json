@@ -1,0 +1,33 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "enter",
+    "command": "explorer.openAndPassFocus",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "/",
+    "command": "workbench.action.quickOpen",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "shift+=",
+    "command": "explorer.newFile",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "d",
+    "command": "explorer.newFolder",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "!editorTextFocus"
+  },
+]
