@@ -1,5 +1,4 @@
-export EDITOR=nvim
-export TERM=xterm-24bit
+export EDITOR=code
 
 # golang
 export GOPATH=~/dev/go
@@ -14,4 +13,4 @@ export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 # python
-export PATH="$HOME/Library/Python/3.9/bin:$PATH"
+export PATH="$HOME/Library/Python/3.8/bin:$PATH"

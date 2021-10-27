@@ -1,33 +1,78 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-# Install Xcode Command Line Tools
-xcode-select --install
+set -euo pipefail
 
-# Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# can't do these via script
+# remap fn to ctrl
+# remap caps to esc
+# set up key repeat=fast and delay until repeat=short
+# set up tap-to-click
+# dock auto hide
+# dock use scale effect
 
-# Install Neovim
-brew install neovim
+# make the development folder
+mkdir -p ~/dev
 
-# Install Tmux
-brew install tmux
+# reverse trackpad scroll direction (undecided)
+# defaults write "Apple Global Domain" "com.apple.swipescrolldirection" -bool true
 
-# Search
-brew install ripgrep
+# enable key repeat
+defaults write -g ApplePressAndHoldEnabled -bool false
 
-# Core GNU utils
-brew install coreutils
+# screenshots path
+defaults write com.apple.screencapture location ~/Screenshots
 
-# Node Version Manager
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+# generate personal ssh key
+if [[ ! -f ~/.ssh/id_rsa.pub ]]; then
+  echo "Generate an SSH key:"
+  echo 'ssh-keygen -t rsa -C "email@address.com"'
+  eval "$(ssh-agent -s)"
+  read -p
+fi
 
-# Yarn
-npm install -g yarn
+# install xcode command line tools
+# (if already installed, this step will error, so we ignore it)
+xcode-select --install || true
 
-# Prompt to Install Docker
-open https://hub.docker.com/editions/community/docker-ce-desktop-mac/
-read -r
+# install brew
+if [[ ! -d /opt/homebrew ]] ; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/dan/.zprofile
+fi
 
-# Prompt to Install iterm2
-open https://iterm2.com/
-read -r
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# check brew is working ok
+brew doctor || true
+
+# install git
+brew install git
+
+# mac global gitignore
+curl https://raw.githubusercontent.com/github/gitignore/master/Global/macOS.gitignore -o ~/.gitignore
+git config --global core.excludesfile ~/.gitignore
+
+# install chrome
+brew install --cask google-chrome
+
+# install vscode
+brew install --cask visual-studio-code
+code --install-extension vscodevim.vim
+code --install-extension github.github-vscode-theme
+
+# install spotify
+brew install --cask spotify
+
+# install aws cli
+pip3 install awscli --upgrade --user
+
+# install these manually
+# docker
+# vmware fusion pro
+# tableplus
+
+# encrypt disk
+# install 1password
+# install ublock origin
+
+# after all this, needs a restart

@@ -1,7 +1,7 @@
 PROMPT='%3~%(?.%F{blue}$%f.%F{red}$%f) '
 
 # saner version of ls (brew install coreutils)
-alias ls='gls --color=auto --group-directories-first'
+#alias ls='gls --color=auto --group-directories-first'
 
 # restore normal bash history keybinding
 bindkey '^r' history-incremental-search-backward
@@ -15,4 +15,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # enable syntax highlighting (must be at the end of zshrc)
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
