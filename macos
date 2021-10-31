@@ -65,10 +65,10 @@ DOTFILES=$PWD
 VSCODE_DIR=~/Library/Application\ Support/Code/
 
 # link everything
-ln -f -s $DOTFILES/tmux/tmux.conf ~/.tmux.conf
-ln -f -s $DOTFILES/vim/vimrc ~/.vimrc
-ln -f -s $DOTFILES/zsh/zshrc ~/.zshrc
-ln -f -s $DOTFILES/zsh/zshenv ~/.zshenv
+ln -f -s $DOTFILES/.tmux.conf ~/.tmux.conf
+ln -f -s $DOTFILES/.vimrc ~/.vimrc
+ln -f -s $DOTFILES/.zshrc ~/.zshrc
+ln -f -s $DOTFILES/.zshenv ~/.zshenv
 ln -f -s $DOTFILES/vscode/settings.json $VSCODE_DIR/User/settings.json
 ln -f -s $DOTFILES/vscode/keybindings.json $VSCODE_DIR/User/keybindings.json
 
