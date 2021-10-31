@@ -5,11 +5,7 @@ set -euo pipefail
 # manual steps
 # - remap fn to ctrl
 # - remap caps to esc
-# - set up key repeat=fast and delay until repeat=short
-# - set up tap-to-click
 # - disable trackpad "lookup and data detectors"
-# - dock auto hide
-# - dock use scale effect
 # - encrypt disk
 
 # disable startup sound
@@ -27,7 +23,11 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write -g ApplePressAndHoldEnabled -bool false
 
 # screenshots path
-defaults write com.apple.screencapture location ~/Screenshots
+defaults write com.apple.screencapture location ~/Pictures/Screenshots
+
+# enable key repeats
+defaults write -g InitialKeyRepeat -int 10
+defaults write -g KeyRepeat -int 1
 
 # disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
@@ -38,6 +38,15 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 # show hidden files in finder
 defaults write com.apple.finder AppleShowAllFiles -bool true
 
+# autohide the dock
+defaults write com.apple.dock "autohide" -bool "true"
+
+# use less jarring animation for minimize
+defaults write com.apple.dock "mineffect" -string "scale"
+
+# restart affected processes
+killall Dock
+
 # install xcode command line tools (ignore error if already installed)
 xcode-select --install || true
 
@@ -47,28 +56,30 @@ if [[ ! -d /opt/homebrew ]] ; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+brew analytics off
 brew install git
 brew install --cask visual-studio-code
 brew install --cask google-chrome
 brew install --cask spotify
 brew install --cask tableplus
-
+pip3 install awscli --upgrade --user
 code --install-extension vscodevim.vim
 code --install-extension github.github-vscode-theme
 
-pip3 install awscli --upgrade --user
-
 # install nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-
-DOTFILES=$PWD
-VSCODE_DIR=~/Library/Application\ Support/Code/
+if [[ ! -d ~/.nvm ]] ; then
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+fi
 
 # link everything
-ln -f -s $DOTFILES/.tmux.conf ~/.tmux.conf
-ln -f -s $DOTFILES/.vimrc ~/.vimrc
-ln -f -s $DOTFILES/.zshrc ~/.zshrc
-ln -f -s $DOTFILES/.zshenv ~/.zshenv
-ln -f -s $DOTFILES/vscode/settings.json $VSCODE_DIR/User/settings.json
-ln -f -s $DOTFILES/vscode/keybindings.json $VSCODE_DIR/User/keybindings.json
+DOTFILES=$PWD
+VSCODE_DIR=~/Library/Application\ Support/Code/User
+
+ln -sfn $DOTFILES/.vim ~/.vim
+ln -sf $DOTFILES/.vimrc ~/.vimrc
+ln -sf $DOTFILES/.zshrc ~/.zshrc
+ln -sf $DOTFILES/.zshenv ~/.zshenv
+ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
+ln -sf $DOTFILES/vscode/settings.json "$VSCODE_DIR/settings.json"
+ln -sf $DOTFILES/vscode/keybindings.json "$VSCODE_DIR/keybindings.json"
 

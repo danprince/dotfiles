@@ -19,3 +19,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # enable syntax highlighting (must be at the end of zshrc)
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
