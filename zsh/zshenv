@@ -1,4 +1,4 @@
-export EDITOR=code
+export EDITOR=vim
 
 # golang
 export GOPATH=~/dev/go

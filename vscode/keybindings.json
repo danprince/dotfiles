@@ -1,4 +1,3 @@
-// Place your key bindings in this file to override the defaults
 [
   {
     "key": "enter",
@@ -13,12 +12,12 @@
   {
     "key": "shift+=",
     "command": "explorer.newFile",
-    "when": "explorerViewletFocus"
+    "when": "explorerViewletFocus && !inputFocus"
   },
   {
     "key": "d",
     "command": "explorer.newFolder",
-    "when": "explorerViewletFocus"
+    "when": "explorerViewletFocus && !inputFocus"
   },
   {
     "key": "ctrl+w",
@@ -29,5 +28,20 @@
     "key": "ctrl+w",
     "command": "workbench.action.focusActiveEditorGroup",
     "when": "!editorTextFocus"
+  },
+  {
+    "key": "s",
+    "command": "git.stage",
+    "when": "focusedView == 'workbench.view.scm' && !inputFocus"
+  },
+  {
+    "key": "u",
+    "command": "git.unstage",
+    "when": "focusedView == 'workbench.view.scm' && !inputFocus"
+  },
+  {
+    "key": "p",
+    "command": "git.push",
+    "when": "focusedView == 'workbench.view.scm' && !inputFocus"
   },
 ]

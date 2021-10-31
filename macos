@@ -1,0 +1,74 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# manual steps
+# - remap fn to ctrl
+# - remap caps to esc
+# - set up key repeat=fast and delay until repeat=short
+# - set up tap-to-click
+# - disable trackpad "lookup and data detectors"
+# - dock auto hide
+# - dock use scale effect
+# - encrypt disk
+
+# disable startup sound
+sudo nvram SystemAudioVolume=" "
+
+# reverse trackpad scroll direction
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
+
+# enable tap to click
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+# enable key repeat
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+# screenshots path
+defaults write com.apple.screencapture location ~/Screenshots
+
+# disable the warning when changing a file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# disable the untrusted apps dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# show hidden files in finder
+defaults write com.apple.finder AppleShowAllFiles -bool true
+
+# install xcode command line tools (ignore error if already installed)
+xcode-select --install || true
+
+# install brew
+if [[ ! -d /opt/homebrew ]] ; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+brew install git
+brew install --cask visual-studio-code
+brew install --cask google-chrome
+brew install --cask spotify
+brew install --cask tableplus
+
+code --install-extension vscodevim.vim
+code --install-extension github.github-vscode-theme
+
+pip3 install awscli --upgrade --user
+
+# install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+
+DOTFILES=$PWD
+VSCODE_DIR=~/Library/Application\ Support/Code/
+
+# link everything
+ln -f -s $DOTFILES/tmux/tmux.conf ~/.tmux.conf
+ln -f -s $DOTFILES/vim/vimrc ~/.vimrc
+ln -f -s $DOTFILES/zsh/zshrc ~/.zshrc
+ln -f -s $DOTFILES/zsh/zshenv ~/.zshenv
+ln -f -s $DOTFILES/vscode/settings.json $VSCODE_DIR/User/settings.json
+ln -f -s $DOTFILES/vscode/keybindings.json $VSCODE_DIR/User/keybindings.json
+
