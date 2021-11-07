@@ -1,44 +1,60 @@
 {
-    "security.workspace.trust.untrustedFiles": "open",
-    "workbench.colorTheme": "GitHub Dark",
     "editor.minimap.enabled": false,
     "editor.renderControlCharacters": true,
-    "breadcrumbs.enabled": false,
-    "editor.cursorBlinking": "solid",
-    "editor.cursorStyle": "line",
-    "workbench.startupEditor": "newUntitledFile",
     "editor.folding": false,
     "editor.tabSize": 2,
     "editor.renderWhitespace": "trailing",
     "editor.rulers": [80],
-    "security.workspace.trust.banner": "never",
-    "workbench.activityBar.visible": false,
+    "editor.fontSize": 13,
+    "editor.lineNumbers": "off",
+    "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+    "workbench.colorTheme": "GitHub Light",
     "workbench.preferredLightColorTheme": "GitHub Light",
     "workbench.preferredDarkColorTheme": "GitHub Dark",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.activityBar.visible": false,
     "workbench.iconTheme": null,
     "workbench.tips.enabled": false,
     "workbench.editor.showTabs": false,
     "workbench.settings.editor": "json",
-    "window.autoDetectColorScheme": true,
-    "telemetry.telemetryLevel": "off",
-    "editor.fontSize": 13,
-    "editor.lineNumbers": "off",
-    "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+    "workbench.colorCustomizations": {
+        "editorRuler.foreground": "#00000020"
+    },
     "git.ignoreMissingGitWarning": true,
     "git.confirmSync": false,
-    "vim.leader": "<space>",
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": ["<leader>", "f", "f"],
-            "commands": ["workbench.action.quickOpen"]
-        },
-        {
-            "before": ["<leader>", "f", "b"],
-            "commands": ["workbench.action.showAllEditors"]
-        },
-        {
-            "before": ["<leader>", "f", "r"],
-            "commands": ["workbench.action.showAllEditorsByMostRecentlyUsed"]
-        }
-    ]
+    "security.workspace.trust.untrustedFiles": "open",
+    "security.workspace.trust.banner": "never",
+    "telemetry.telemetryLevel": "off",
+    "breadcrumbs.enabled": false,
+    "window.autoDetectColorScheme": true,
+    "macros": {
+        "openFileAndCloseExplorer": [
+            "explorer.openAndPassFocus",
+            "workbench.action.toggleSidebarVisibility"
+        ]
+    },
+    "explorer.confirmDragAndDrop": false,
+    "terminal.integrated.fontSize": 13,
+    "gitlens.blame.compact": false,
+    "gitlens.blame.avatars": false,
+    "gitlens.blame.heatmap.enabled": false,
+    "gitlens.blame.highlight.enabled": false,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.codeLens.enabled": false,
+    "git.enableSmartCommit": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "emmet.showAbbreviationSuggestions": false,
+    "emmet.excludeLanguages": [
+        "markdown",
+        "typescript",
+        "tsx"
+    ],
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "explorer.confirmDelete": false
 }

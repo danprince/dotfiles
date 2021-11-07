@@ -35,6 +35,9 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # disable the untrusted apps dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
+# enable quitting finder
+defaults write com.apple.finder QuitMenuItem -bool YES
+
 # show hidden files in finder
 defaults write com.apple.finder AppleShowAllFiles -bool true
 
@@ -46,6 +49,7 @@ defaults write com.apple.dock "mineffect" -string "scale"
 
 # restart affected processes
 killall Dock
+killall Finder
 
 # install xcode command line tools (ignore error if already installed)
 xcode-select --install || true
@@ -58,6 +62,7 @@ fi
 
 brew analytics off
 brew install git
+brew install jq
 brew install --cask visual-studio-code
 brew install --cask google-chrome
 brew install --cask spotify
@@ -65,6 +70,7 @@ brew install --cask tableplus
 pip3 install awscli --upgrade --user
 code --install-extension vscodevim.vim
 code --install-extension github.github-vscode-theme
+code --install-extension geddski.macros
 
 # install nvm
 if [[ ! -d ~/.nvm ]] ; then
@@ -82,4 +88,3 @@ ln -sf $DOTFILES/.zshenv ~/.zshenv
 ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
 ln -sf $DOTFILES/vscode/settings.json "$VSCODE_DIR/settings.json"
 ln -sf $DOTFILES/vscode/keybindings.json "$VSCODE_DIR/keybindings.json"
-

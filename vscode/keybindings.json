@@ -1,7 +1,7 @@
 [
   {
     "key": "enter",
-    "command": "explorer.openAndPassFocus",
+    "command": "macros.openFileAndCloseExplorer",
     "when": "explorerViewletFocus"
   },
   {
@@ -9,9 +9,13 @@
     "command": "workbench.action.quickOpen",
     "when": "explorerViewletFocus"
   },
-  {
-    "key": "shift+=",
+  { "key": "shift+5",
     "command": "explorer.newFile",
+    "when": "explorerViewletFocus && !inputFocus"
+  },
+  {
+    "key": "r",
+    "command": "renameFile",
     "when": "explorerViewletFocus && !inputFocus"
   },
   {
@@ -20,28 +24,13 @@
     "when": "explorerViewletFocus && !inputFocus"
   },
   {
-    "key": "ctrl+w",
-    "command": "workbench.action.focusActiveEditorGroup",
-    "when": "explorerViewletFocus"
+    "key": "shift+d",
+    "command": "deleteFile",
+    "when": "explorerViewletFocus && !inputFocus"
   },
   {
     "key": "ctrl+w",
     "command": "workbench.action.focusActiveEditorGroup",
     "when": "!editorTextFocus"
-  },
-  {
-    "key": "s",
-    "command": "git.stage",
-    "when": "focusedView == 'workbench.view.scm' && !inputFocus"
-  },
-  {
-    "key": "u",
-    "command": "git.unstage",
-    "when": "focusedView == 'workbench.view.scm' && !inputFocus"
-  },
-  {
-    "key": "p",
-    "command": "git.push",
-    "when": "focusedView == 'workbench.view.scm' && !inputFocus"
-  },
+  }
 ]
