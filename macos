@@ -61,8 +61,8 @@ if [[ ! -d /opt/homebrew ]] ; then
 fi
 
 brew analytics off
-brew install git
 brew install jq
+brew install ngrok
 brew install --cask visual-studio-code
 brew install --cask google-chrome
 brew install --cask spotify
@@ -76,15 +76,3 @@ code --install-extension geddski.macros
 if [[ ! -d ~/.nvm ]] ; then
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 fi
-
-# link everything
-DOTFILES=$PWD
-VSCODE_DIR=~/Library/Application\ Support/Code/User
-
-ln -sfn $DOTFILES/.vim ~/.vim
-ln -sf $DOTFILES/.vimrc ~/.vimrc
-ln -sf $DOTFILES/.zshrc ~/.zshrc
-ln -sf $DOTFILES/.zshenv ~/.zshenv
-ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
-ln -sf $DOTFILES/vscode/settings.json "$VSCODE_DIR/settings.json"
-ln -sf $DOTFILES/vscode/keybindings.json "$VSCODE_DIR/keybindings.json"

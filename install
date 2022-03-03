@@ -3,3 +3,24 @@
 case $(uname -s) in
   Darwin*) ./macos ;;
 esac
+
+DOTFILES=$PWD
+
+ln -sfn $DOTFILES/.vim ~/.vim
+ln -sf $DOTFILES/.vimrc ~/.vimrc
+ln -sf $DOTFILES/.zshrc ~/.zshrc
+ln -sf $DOTFILES/.zshenv ~/.zshenv
+ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
+
+case $(uname -s) in
+  Darwin*)
+    VSCODE_DIR=$HOME/Library/Application\ Support/Code/User
+  ;;
+  *)
+    VSCODE_DIR=$HOME/.config/Code/User
+  ;;
+esac
+
+ln -sf $DOTFILES/vscode/settings.json "$VSCODE_DIR/settings.json"
+ln -sf $DOTFILES/vscode/keybindings.json "$VSCODE_DIR/keybindings.json"
+

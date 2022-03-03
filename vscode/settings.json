@@ -4,9 +4,9 @@
     "editor.folding": false,
     "editor.tabSize": 2,
     "editor.renderWhitespace": "trailing",
-    "editor.rulers": [80],
     "editor.fontSize": 13,
     "editor.lineNumbers": "off",
+    "editor.wordWrap": "off",
     "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
     "workbench.colorTheme": "GitHub Light",
     "workbench.preferredLightColorTheme": "GitHub Light",
@@ -17,44 +17,116 @@
     "workbench.tips.enabled": false,
     "workbench.editor.showTabs": false,
     "workbench.settings.editor": "json",
-    "workbench.colorCustomizations": {
-        "editorRuler.foreground": "#00000020"
-    },
+    "breadcrumbs.enabled": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "git.autoRepositoryDetection": "openEditors",
+    "git.ignoredRepositories": ["/Users/dan/kumu/kumu-ops/docker/web/src"],
     "git.ignoreMissingGitWarning": true,
     "git.confirmSync": false,
     "security.workspace.trust.untrustedFiles": "open",
     "security.workspace.trust.banner": "never",
     "telemetry.telemetryLevel": "off",
-    "breadcrumbs.enabled": false,
+    "terminal.integrated.fontSize": 13,
     "window.autoDetectColorScheme": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "calva.showCalvaSaysOnStart": false,
     "macros": {
         "openFileAndCloseExplorer": [
             "explorer.openAndPassFocus",
             "workbench.action.toggleSidebarVisibility"
+        ],
+        "clearResultsAndEscape": [
+            "extension.vim_escape",
+            "calva.clearInlineResults"
+        ],
+        "closeEditorAndOpenExplorer": [
+            "workbench.action.closeActiveEditor",
+            "workbench.view.explorer"
         ]
     },
-    "explorer.confirmDragAndDrop": false,
-    "terminal.integrated.fontSize": 13,
-    "gitlens.blame.compact": false,
-    "gitlens.blame.avatars": false,
-    "gitlens.blame.heatmap.enabled": false,
-    "gitlens.blame.highlight.enabled": false,
-    "gitlens.currentLine.enabled": false,
-    "gitlens.hovers.currentLine.over": "line",
-    "gitlens.codeLens.enabled": false,
-    "git.enableSmartCommit": true,
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "emmet.showAbbreviationSuggestions": false,
-    "emmet.excludeLanguages": [
-        "markdown",
-        "typescript",
-        "tsx"
-    ],
     "[typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "explorer.confirmDelete": false
+    "calva.prettyPrintingOptions": {
+        "enabled": true,
+        "width": 120,
+        "maxLength": 50,
+        "printEngine": "pprint"
+    },
+    "git.suggestSmartCommit": false,
+    "diffEditor.renderSideBySide": false,
+    "vim.normalModeKeyBindingsNonRecursive": [
+    ],
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["<space>", "<space>"],
+            "commands": ["workbench.action.quickOpen"]
+        },
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        },
+        {
+            "before": ["k"],
+            "after": ["g", "k"]
+        },
+        {
+            "before": ["<leader>", "r", "n"],
+            "commands": ["editor.action.rename"]
+        },
+        {
+            "before": ["]", "q"],
+            "commands": ["editor.action.marker.nextInFiles"]
+        },
+        {
+            "before": ["[", "q"],
+            "commands": ["editor.action.marker.prevInFiles"]
+        },
+        {
+            "before": ["<leader>", "q", "f"],
+            "commands": ["editor.action.quickFix"]
+        },
+        {
+            "before": ["<leader>", "f", "f"],
+            "commands": ["editor.action.autoFix"]
+        },
+        {
+            "before": ["<leader>", "g", "s"],
+            "when": "isInDiffEditor",
+            "commands": ["git.stageSelectedRanges"]
+        },
+        {
+            "before": ["<leader>", "g", "u"],
+            "when": "isInDiffEditor",
+            "commands": ["git.unstageSelectedRanges"]
+        },
+        {
+            "before": ["<enter>"],
+            "when": "isInDiffEditor",
+            "commands": ["git.openFile"]
+        },
+        {
+            "before": ["<leader>", "g", "g"],
+            "commands": ["workbench.view.scm"]
+        },
+        {
+            "before": ["]", "g"],
+            "when": "editorTextFocus && !textCompareEditorActive",
+            "commands": ["workbench.action.editor.nextChange"]
+        },
+        {
+            "before": ["[", "g"],
+            "when": "editorTextFocus && !textCompareEditorActive",
+            "commands": ["workbench.action.editor.previousChange"]
+        },
+        {
+            "before": ["-"],
+            "commands": ["workbench.view.explorer"]
+        },
+    ],
 }
