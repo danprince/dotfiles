@@ -7,20 +7,20 @@
     "editor.fontSize": 13,
     "editor.lineNumbers": "off",
     "editor.wordWrap": "off",
+    "editor.glyphMargin": false,
     "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
     "workbench.colorTheme": "GitHub Light",
     "workbench.preferredLightColorTheme": "GitHub Light",
     "workbench.preferredDarkColorTheme": "GitHub Dark",
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.activityBar.visible": false,
     "workbench.iconTheme": null,
     "workbench.tips.enabled": false,
+    "workbench.layoutControl.enabled": false,
     "workbench.editor.showTabs": false,
     "workbench.settings.editor": "json",
-    "breadcrumbs.enabled": false,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
-    "git.autoRepositoryDetection": "openEditors",
+    "git.autoRepositoryDetection": "subFolders",
     "git.ignoredRepositories": ["/Users/dan/kumu/kumu-ops/docker/web/src"],
     "git.ignoreMissingGitWarning": true,
     "git.confirmSync": false,
@@ -31,6 +31,7 @@
     "window.autoDetectColorScheme": true,
     "typescript.updateImportsOnFileMove.enabled": "always",
     "calva.showCalvaSaysOnStart": false,
+    "prettier.useTabs": false,
     "macros": {
         "openFileAndCloseExplorer": [
             "explorer.openAndPassFocus",
@@ -45,6 +46,7 @@
             "workbench.view.explorer"
         ]
     },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "[typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -59,13 +61,23 @@
     },
     "git.suggestSmartCommit": false,
     "diffEditor.renderSideBySide": false,
-    "vim.normalModeKeyBindingsNonRecursive": [
-    ],
+    "vim.showmodename": false,
     "vim.leader": "<space>",
     "vim.normalModeKeyBindings": [
         {
-            "before": ["<space>", "<space>"],
-            "commands": ["workbench.action.quickOpen"]
+            "before": ["-"],
+            "commands": ["vsnetrw.openHome"],
+            "when": "editorLangId != 'magit'"
+        },
+        {
+            "before": ["-"],
+            "commands": ["vsnetrw.open"],
+            "when": "editorLangId != 'vsnetrw'"
+        },
+        {
+            "before": ["~"],
+            "commands": ["vsnetrw.openHome"],
+            "when": "editorLangId != 'vsnetrw'"
         },
         {
             "before": ["j"],
@@ -112,7 +124,7 @@
         },
         {
             "before": ["<leader>", "g", "g"],
-            "commands": ["workbench.view.scm"]
+            "commands": ["magit.status"]
         },
         {
             "before": ["]", "g"],
@@ -123,10 +135,23 @@
             "before": ["[", "g"],
             "when": "editorTextFocus && !textCompareEditorActive",
             "commands": ["workbench.action.editor.previousChange"]
-        },
-        {
-            "before": ["-"],
-            "commands": ["workbench.view.explorer"]
-        },
+        }
     ],
+    "editor.guides.indentation": false,
+    "workbench.activityBar.visible": false,
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "breadcrumbs.enabled": false,
+    "prettier.arrowParens": "avoid",
+    "prettier.trailingComma": "all",
+    "window.dialogStyle": "custom",
+    "window.title": " ",
+    "files.insertFinalNewline": true,
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "screencastMode.fontSize": 30,
+    "screencastMode.verticalOffset": 0,
+    "screencastMode.keyboardShortcutsFormat": "commandWithGroupAndKeys",
+    "workbench.editor.untitled.hint": "hidden",
 }

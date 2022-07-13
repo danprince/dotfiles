@@ -11,6 +11,8 @@ ln -sf $DOTFILES/.vimrc ~/.vimrc
 ln -sf $DOTFILES/.zshrc ~/.zshrc
 ln -sf $DOTFILES/.zshenv ~/.zshenv
 ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
+ln -sf $DOTFILES/.gitconfig ~/.gitconfig
+ln -sf $DOTFILES/.gitignore ~/.gitignore.global
 
 case $(uname -s) in
   Darwin*)

@@ -14,6 +14,7 @@ set statusline=%{expand('%:~:.')}\ %{&modified?'[+]':''}%=%{expand(&filetype)}\ 
 set undofile undodir=/tmp/vimundo
 
 syntax on
+colorscheme github
 filetype plugin on
 filetype indent on
 

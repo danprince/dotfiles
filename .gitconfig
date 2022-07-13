@@ -1,0 +1,11 @@
+[core]
+	excludesfile = /Users/dan/.gitignore
+[user]
+	name = Dan Prince
+	email = 1266011+danprince@users.noreply.github.com
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
