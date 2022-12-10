@@ -3,15 +3,21 @@
     "editor.renderControlCharacters": true,
     "editor.folding": false,
     "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.value": 2,
+    "workbench.editor.limit.perEditorGroup": true,
     "editor.renderWhitespace": "trailing",
     "editor.fontSize": 13,
     "editor.lineNumbers": "off",
     "editor.wordWrap": "off",
     "editor.glyphMargin": false,
     "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+    "editor.snippetSuggestions": "none",
     "workbench.colorTheme": "GitHub Light",
     "workbench.preferredLightColorTheme": "GitHub Light",
     "workbench.preferredDarkColorTheme": "GitHub Dark",
+    "workbench.editor.closeOnFileDelete": true,
     "workbench.startupEditor": "newUntitledFile",
     "workbench.iconTheme": null,
     "workbench.tips.enabled": false,
@@ -66,11 +72,6 @@
     "vim.normalModeKeyBindings": [
         {
             "before": ["-"],
-            "commands": ["vsnetrw.openHome"],
-            "when": "editorLangId != 'magit'"
-        },
-        {
-            "before": ["-"],
             "commands": ["vsnetrw.open"],
             "when": "editorLangId != 'vsnetrw'"
         },
@@ -94,6 +95,14 @@
         {
             "before": ["]", "q"],
             "commands": ["editor.action.marker.nextInFiles"]
+        },
+        {
+            "before": ["[", "q"],
+            "commands": ["search.action.focusNextSearchResult"]
+        },
+        {
+            "before": ["]", "s"],
+            "commands": ["search.action.focusPreviousSearchResult"]
         },
         {
             "before": ["[", "q"],
@@ -154,4 +163,25 @@
     "screencastMode.verticalOffset": 0,
     "screencastMode.keyboardShortcutsFormat": "commandWithGroupAndKeys",
     "workbench.editor.untitled.hint": "hidden",
+    "[sh]": {
+        "editor.tabSize": 2
+    },
+    "[go]": {
+        "editor.defaultFormatter": "golang.go"
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "Lua.telemetry.enable": false,
+    "editor.accessibilitySupport": "off",
+    "[zig]": {
+        "editor.defaultFormatter": "tiehuis.zig",
+        "editor.tabSize": 4,
+        "editor.formatOnSave": true
+    },
+    "zig.buildOnSave": true,
+    "zls.path": "/usr/local/bin/zls",
+    "zls.enable_ast_check_diagnostics": true,
+    "zls.enable_import_embedfile_argument_completions": true,
+    "zls.include_at_in_builtins": true,
+    "zls.warn_style": true,
+    "zls.check_for_update": false,
 }
