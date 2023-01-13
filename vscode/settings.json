@@ -127,6 +127,14 @@
             "commands": ["git.unstageSelectedRanges"]
         },
         {
+            "before": ["<leader>", "t"],
+            "commands": ["workbench.action.tasks.test"]
+        },
+        {
+            "before": ["<leader>", "b"],
+            "commands": ["workbench.action.tasks.build"]
+        },
+        {
             "before": ["<enter>"],
             "when": "isInDiffEditor",
             "commands": ["git.openFile"]
