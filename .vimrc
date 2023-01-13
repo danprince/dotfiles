@@ -12,6 +12,7 @@ set timeoutlen=1000 ttimeoutlen=0
 set noswapfile nobackup nowritebackup
 set statusline=%{expand('%:~:.')}\ %{&modified?'[+]':''}%=%{expand(&filetype)}\ %l:%c
 set undofile undodir=/tmp/vimundo
+set backspace=indent,eol,start
 set linebreak
 
 syntax on
