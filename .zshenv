@@ -1,5 +1,8 @@
 export EDITOR=vim
 
+# scripts
+export PATH=$PATH:~/dev/scripts
+
 # golang
 export GOPATH=~/dev/go
 export PATH=$PATH:/usr/local/go/bin
