@@ -71,6 +71,25 @@
     "vim.showmodename": false,
     "vim.leader": "<space>",
     "vim.normalModeKeyBindings": [
+        // Make vim motions visually consistent when word wrapping is enabled.
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        },
+        {
+            "before": ["k"],
+            "after": ["g", "k"]
+        },
+        {
+            "before": ["$"],
+            "after": ["g", "_"]
+        },
+        {
+            "before": ["0"],
+            "after": ["g", "0"]
+        },
+
+        // Vsnetrw overrides (https://github.com/danprince/vsnetrw#vscodevim-keybindings)
         {
             "before": ["-"],
             "commands": ["vsnetrw.open"],
@@ -81,69 +100,25 @@
             "commands": ["vsnetrw.openHome"],
             "when": "editorLangId != 'vsnetrw'"
         },
-        {
-            "before": ["j"],
-            "after": ["g", "j"]
-        },
-        {
-            "before": ["k"],
-            "after": ["g", "k"]
-        },
-        {
-            "before": ["<leader>", "r", "n"],
-            "commands": ["editor.action.rename"]
-        },
+        // Jump through quickfix results
         {
             "before": ["]", "q"],
             "commands": ["editor.action.marker.nextInFiles"]
         },
         {
             "before": ["[", "q"],
+            "commands": ["editor.action.marker.prevInFiles"]
+        },
+        // Jump through search results
+        {
+            "before": ["[", "s"],
             "commands": ["search.action.focusNextSearchResult"]
         },
         {
             "before": ["]", "s"],
             "commands": ["search.action.focusPreviousSearchResult"]
         },
-        {
-            "before": ["[", "q"],
-            "commands": ["editor.action.marker.prevInFiles"]
-        },
-        {
-            "before": ["<leader>", "q", "f"],
-            "commands": ["editor.action.quickFix"]
-        },
-        {
-            "before": ["<leader>", "f", "f"],
-            "commands": ["editor.action.autoFix"]
-        },
-        {
-            "before": ["<leader>", "g", "s"],
-            "when": "isInDiffEditor",
-            "commands": ["git.stageSelectedRanges"]
-        },
-        {
-            "before": ["<leader>", "g", "u"],
-            "when": "isInDiffEditor",
-            "commands": ["git.unstageSelectedRanges"]
-        },
-        {
-            "before": ["<leader>", "t"],
-            "commands": ["workbench.action.tasks.test"]
-        },
-        {
-            "before": ["<leader>", "b"],
-            "commands": ["workbench.action.tasks.build"]
-        },
-        {
-            "before": ["<enter>"],
-            "when": "isInDiffEditor",
-            "commands": ["git.openFile"]
-        },
-        {
-            "before": ["<leader>", "g", "g"],
-            "commands": ["magit.status"]
-        },
+        // Jump through Git hunks
         {
             "before": ["]", "g"],
             "when": "editorTextFocus && !textCompareEditorActive",
@@ -153,7 +128,33 @@
             "before": ["[", "g"],
             "when": "editorTextFocus && !textCompareEditorActive",
             "commands": ["workbench.action.editor.previousChange"]
-        }
+        },
+
+        // Leader mappings
+        {
+            "before": ["<leader>", "t"],
+            "commands": ["workbench.action.tasks.test"]
+        },
+        {
+            "before": ["<leader>", "b"],
+            "commands": ["workbench.action.tasks.build"]
+        },
+        {
+            "before": ["<leader>", "g", "g"],
+            "commands": ["magit.status"]
+        },
+        {
+            "before": ["<leader>", "r", "n"],
+            "commands": ["editor.action.rename"]
+        },
+        {
+            "before": ["<leader>", "q", "f"],
+            "commands": ["editor.action.quickFix"]
+        },
+        {
+            "before": ["<leader>", "f", "f"],
+            "commands": ["editor.action.autoFix"]
+        },
     ],
 
     // Language overrides
