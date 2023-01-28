@@ -1,0 +1,3 @@
+[submodule ".vim/pack/default/start/vim-colors-github"]
+	path = .vim/pack/default/start/vim-colors-github
+	url = git@github.com:cormacrelf/vim-colors-github.git
