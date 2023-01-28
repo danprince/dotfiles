@@ -1,61 +1,87 @@
 [
-  // Vim style search in explorer
+  // Disable escape behaviour in vsnetrw explorer (https://github.com/danprince/vsnetrw)
   {
-    "key": "/",
-    "command": "workbench.action.quickOpen",
-    "when": "explorerViewletFocus && !inputFocus"
+    "key": "escape",
+    "command": "-vsnetrw.close",
+    "when": "editorTextFocus && editorLangId == vsnetrw && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
   },
 
-  // % to create a file
-  { "key": "shift+5",
-    "command": "explorer.newFile",
-    "when": "explorerViewletFocus && !inputFocus"
-  },
-
-  // r to rename a file
+  // Vim + Magit (https://github.com/kahole/edamagit#vim-support-vscodevim)
   {
-    "key": "r",
-    "command": "renameFile",
-    "when": "explorerViewletFocus && !inputFocus"
-  },
-
-  // d to create a directory
-  {
-    "key": "d",
-    "command": "explorer.newFolder",
-    "when": "explorerViewletFocus && !inputFocus"
-  },
-
-  // D to delete the file under the cursor
-  {
-    "key": "shift+d",
-    "command": "deleteFile",
-    "when": "explorerViewletFocus && !inputFocus"
-  },
-
-  // Jump back to editor from non-editor
-  {
-    "key": "ctrl+w",
-    "command": "workbench.action.focusActiveEditorGroup",
-    "when": "!editorTextFocus"
-  },
-
-  // Jump back to editor from terminal when pressing ctrl+w
-  {
-    "key": "ctrl+w",
-    "command": "workbench.action.focusActiveEditorGroup",
-    "when": "terminalFocus"
-  },
-
-  {
-    "key": "ctrl+]",
-    "command": "workbench.action.terminal.focusNext",
-    "when": "terminalFocus"
+    "key": "-",
+    "command": "vsnetrw.openHome",
+    "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
   },
   {
-    "key": "ctrl+[",
-    "command": "workbench.action.terminal.focusPrevious",
-    "when": "terminalFocus"
+    "key": "g g",
+    "command": "cursorTop",
+    "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/" 
+  },
+  {
+      "key": "g r",
+      "command": "magit.refresh",
+      "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/" 
+  },
+  {
+    "key": "tab",
+    "command": "extension.vim_tab",
+    "when": "editorFocus && vim.active && !inDebugRepl && vim.mode != 'Insert' && editorLangId != 'magit'"
+  },
+  {
+    "key": "tab",
+    "command": "-extension.vim_tab",
+    "when": "editorFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'"
+  },
+  {
+    "key": "x",
+    "command": "magit.discard-at-point",
+    "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
+  },
+  {
+    "key": "k",
+    "command": "-magit.discard-at-point"
+  },
+  // Conflicts with vsnetrw
+  // {
+  //   "key": "-",
+  //   "command": "magit.reverse-at-point",
+  //   "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
+  // },
+  {
+    "key": "v",
+    "command": "-magit.reverse-at-point"
+  },
+  // Conflicts with vsnetrw
+  //{
+  //  "key": "shift+-",
+  //  "command": "magit.reverting",
+  //  "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
+  //},
+  {
+    "key": "shift+v",
+    "command": "-magit.reverting"
+  },
+  {
+    "key": "shift+o",
+    "command": "magit.resetting",
+    "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
+  },
+  {
+    "key": "shift+x",
+    "command": "-magit.resetting"
+  },
+  {
+    "key": "x",
+    "command": "-magit.reset-mixed"
+  },
+  // Conflicts with ctrw+w l to move windows
+  {
+    "key": "l",
+    "command": "-magit.logging"
+  },
+  {
+    "key": "ctrl+u x",
+    "command": "-magit.reset-hard"
   },
 
   // Calva
@@ -331,89 +357,4 @@
     "command": "-paredit.deleteBackward",
     "when": "calva:keybindingsEnabled && editorTextFocus && !calva:cursorInComment && !editorHasMultipleSelections && !editorReadOnly && editorLangId == 'clojure' && paredit:keyMap == 'strict'"
   },
-
-  // Disable escape behaviour in vsnetrw explorer
-  {
-    "key": "escape",
-    "command": "-vsnetrw.close",
-    "when": "editorTextFocus && editorLangId == vsnetrw && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
-  },
-
-  // Vim + Magit
-  {
-    "key": "-",
-    "command": "vsnetrw.openHome",
-    "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
-  },
-  {
-    "key": "g g",
-    "command": "cursorTop",
-    "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/" 
-  },
-  {
-      "key": "g r",
-      "command": "magit.refresh",
-      "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/" 
-  },
-  {
-    "key": "tab",
-    "command": "extension.vim_tab",
-    "when": "editorFocus && vim.active && !inDebugRepl && vim.mode != 'Insert' && editorLangId != 'magit'"
-  },
-  {
-    "key": "tab",
-    "command": "-extension.vim_tab",
-    "when": "editorFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'"
-  },
-  {
-    "key": "x",
-    "command": "magit.discard-at-point",
-    "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
-  },
-  {
-    "key": "k",
-    "command": "-magit.discard-at-point"
-  },
-  // Conflicts with vsnetrw
-  // {
-  //   "key": "-",
-  //   "command": "magit.reverse-at-point",
-  //   "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
-  // },
-  {
-    "key": "v",
-    "command": "-magit.reverse-at-point"
-  },
-  // Conflicts with vsnetrw
-  //{
-  //  "key": "shift+-",
-  //  "command": "magit.reverting",
-  //  "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
-  //},
-  {
-    "key": "shift+v",
-    "command": "-magit.reverting"
-  },
-  {
-    "key": "shift+o",
-    "command": "magit.resetting",
-    "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
-  },
-  {
-    "key": "shift+x",
-    "command": "-magit.resetting"
-  },
-  {
-    "key": "x",
-    "command": "-magit.reset-mixed"
-  },
-  // Conflicts with ctrw+w l to move windows
-  {
-    "key": "l",
-    "command": "-magit.logging"
-  },
-  {
-    "key": "ctrl+u x",
-    "command": "-magit.reset-hard"
-  }
 ]

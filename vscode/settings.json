@@ -1,72 +1,73 @@
 {
+    // Editor
+    "editor.fontSize": 13,
+    "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
     "editor.minimap.enabled": false,
-    "editor.renderControlCharacters": true,
     "editor.folding": false,
     "editor.tabSize": 2,
     "editor.insertSpaces": true,
-    "workbench.editor.limit.enabled": true,
-    "workbench.editor.limit.value": 2,
-    "workbench.editor.limit.perEditorGroup": true,
+    "editor.renderControlCharacters": true,
     "editor.renderWhitespace": "trailing",
-    "editor.fontSize": 13,
     "editor.lineNumbers": "off",
     "editor.wordWrap": "off",
     "editor.glyphMargin": false,
-    "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
     "editor.snippetSuggestions": "none",
+    "editor.accessibilitySupport": "off",
+    "editor.guides.indentation": false,
+
+    // Workbench
     "workbench.colorTheme": "GitHub Light",
     "workbench.preferredLightColorTheme": "GitHub Light",
     "workbench.preferredDarkColorTheme": "GitHub Dark",
-    "workbench.editor.closeOnFileDelete": true,
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.iconTheme": null,
-    "workbench.tips.enabled": false,
-    "workbench.layoutControl.enabled": false,
-    "workbench.editor.showTabs": false,
-    "workbench.settings.editor": "json",
-    "explorer.confirmDelete": false,
-    "explorer.confirmDragAndDrop": false,
-    "git.autoRepositoryDetection": "subFolders",
+    "workbench.editor.enablePreview": false,       // If you're going to open it, open it properly!
+    "workbench.editor.showTabs": false,            // Down with tabs!
+    "workbench.editor.limit.enabled": true,        // Enforce a max number of open editors
+    "workbench.editor.limit.value": 2,             // No more than two editors open at once
+    "workbench.editor.limit.perEditorGroup": true, // Limits are enforced, per split
+    "workbench.editor.closeOnFileDelete": true,    // Deleting files should close them
+    "workbench.editor.untitled.hint": "hidden",    // Remove text from startupEditor
+    "workbench.startupEditor": "newUntitledFile",  // Open the editor with an empty file
+    "workbench.iconTheme": null,                   // Reduce visual noise
+    "workbench.tips.enabled": false,               // No more tips please
+    "workbench.layoutControl.enabled": false,      // Remove layout buttons from top right
+    "workbench.activityBar.visible": false,        // Remove left hand side activity bar
+    "workbench.settings.editor": "json",           // Default to opening settings as JSON
+
+    // Other
+    "window.autoDetectColorScheme": true, // Use the OS provided light/dark mode
+    "window.dialogStyle": "custom",       // Don't use native dialogs
+    "window.title": " ",                  // Empty string will be overridden
+    "breadcrumbs.enabled": false,         // Don't show breadcrumbs below tab bar
+    "files.insertFinalNewline": true,     // Insert a final newline when saving
+    "diffEditor.renderSideBySide": false, // Render diffs in a single split
+
+    // Git
+    "git.confirmSync": false,                    // Don't prompt before syncing a repo
+    "git.suggestSmartCommit": false,             // Don't automatically stage changes
+    "git.autoRepositoryDetection": "subFolders", // Submodule detection
     "git.ignoredRepositories": ["/Users/dan/kumu/kumu-ops/docker/web/src"],
-    "git.ignoreMissingGitWarning": true,
-    "git.confirmSync": false,
-    "security.workspace.trust.untrustedFiles": "open",
-    "security.workspace.trust.banner": "never",
-    "telemetry.telemetryLevel": "off",
+
+    // Terminal
     "terminal.integrated.fontSize": 13,
-    "window.autoDetectColorScheme": true,
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "calva.showCalvaSaysOnStart": false,
-    "prettier.useTabs": false,
-    "macros": {
-        "openFileAndCloseExplorer": [
-            "explorer.openAndPassFocus",
-            "workbench.action.toggleSidebarVisibility"
-        ],
-        "clearResultsAndEscape": [
-            "extension.vim_escape",
-            "calva.clearInlineResults"
-        ],
-        "closeEditorAndOpenExplorer": [
-            "workbench.action.closeActiveEditor",
-            "workbench.view.explorer"
-        ]
-    },
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+
+    // Screencasting / Recording
+    "screencastMode.fontSize": 30,
+    "screencastMode.verticalOffset": 0,
+    "screencastMode.keyboardShortcutsFormat": "commandWithGroupAndKeys",
+
+    // Security
+    "security.workspace.trust.banner": "never",
+    "security.workspace.trust.untrustedFiles": "open",
+    "telemetry.telemetryLevel": "off",
+
+    // Formatting
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "calva.prettyPrintingOptions": {
-        "enabled": true,
-        "width": 120,
-        "maxLength": 50,
-        "printEngine": "pprint"
-    },
-    "git.suggestSmartCommit": false,
-    "diffEditor.renderSideBySide": false,
+    "prettier.useTabs": false,
+    "prettier.arrowParens": "avoid",
+    "prettier.trailingComma": "all",
+
+    // Vim
     "vim.showmodename": false,
     "vim.leader": "<space>",
     "vim.normalModeKeyBindings": [
@@ -154,37 +155,40 @@
             "commands": ["workbench.action.editor.previousChange"]
         }
     ],
-    "editor.guides.indentation": false,
-    "workbench.activityBar.visible": false,
+
+    // Language overrides
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "[jsonc]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "breadcrumbs.enabled": false,
-    "prettier.arrowParens": "avoid",
-    "prettier.trailingComma": "all",
-    "window.dialogStyle": "custom",
-    "window.title": " ",
-    "files.insertFinalNewline": true,
-    "terminal.integrated.enableMultiLinePasteWarning": false,
-    "screencastMode.fontSize": 30,
-    "screencastMode.verticalOffset": 0,
-    "screencastMode.keyboardShortcutsFormat": "commandWithGroupAndKeys",
-    "workbench.editor.untitled.hint": "hidden",
     "[sh]": {
         "editor.tabSize": 2
+    },
+    "[markdown]": {
+        "editor.wordWrapColumn": 80,
+        "editor.wordWrap": "wordWrapColumn"
     },
     "[go]": {
         "editor.defaultFormatter": "golang.go"
     },
-    "go.toolsManagement.autoUpdate": true,
-    "Lua.telemetry.enable": false,
-    "editor.accessibilitySupport": "off",
     "[zig]": {
         "editor.defaultFormatter": "tiehuis.zig",
         "editor.tabSize": 4,
         "editor.formatOnSave": true
     },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+
+    // Extensions
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "go.toolsManagement.autoUpdate": true,
     "zig.buildOnSave": true,
     "zls.path": "/usr/local/bin/zls",
     "zls.enable_ast_check_diagnostics": true,
@@ -192,4 +196,13 @@
     "zls.include_at_in_builtins": true,
     "zls.warn_style": true,
     "zls.check_for_update": false,
+    "write-good.only-lint-on-save": null,
+    "Lua.telemetry.enable": false,
+    "calva.showCalvaSaysOnStart": false,
+    "calva.prettyPrintingOptions": {
+        "enabled": true,
+        "width": 120,
+        "maxLength": 50,
+        "printEngine": "pprint"
+    },
 }
