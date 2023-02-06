@@ -67,10 +67,16 @@ brew install --cask visual-studio-code
 brew install --cask google-chrome
 brew install --cask spotify
 brew install --cask tableplus
+
 pip3 install awscli --upgrade --user
+
 code --install-extension vscodevim.vim
 code --install-extension github.github-vscode-theme
-code --install-extension geddski.macros
+code --install-extension kahole.magit
+code --install-extension danprince.vsnetrw
+code --install-extension timonwong.shellcheck
+code --install-extension esbenp.prettier-vscode
+code --install-extension sysoev.vscode-open-in-github
 
 # install nvm
 if [[ ! -d ~/.nvm ]] ; then
