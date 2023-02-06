@@ -16,9 +16,9 @@
     "editor.guides.indentation": false,
 
     // Workbench
-    "workbench.colorTheme": "GitHub Light",
-    "workbench.preferredLightColorTheme": "GitHub Light",
-    "workbench.preferredDarkColorTheme": "GitHub Dark",
+    "workbench.colorTheme": "GitHub Dark Default",
+    "workbench.preferredLightColorTheme": "GitHub Light Default",
+    "workbench.preferredDarkColorTheme": "GitHub Dark Default",
     "workbench.editor.enablePreview": false,       // If you're going to open it, open it properly!
     "workbench.editor.showTabs": false,            // Down with tabs!
     "workbench.editor.limit.enabled": true,        // Enforce a max number of open editors
@@ -206,4 +206,5 @@
         "maxLength": 50,
         "printEngine": "pprint"
     },
+    "editor.unicodeHighlight.ambiguousCharacters": false,
 }
