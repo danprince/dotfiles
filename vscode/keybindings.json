@@ -18,9 +18,9 @@
     "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/" 
   },
   {
-      "key": "g r",
-      "command": "magit.refresh",
-      "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/" 
+    "key": "g r",
+    "command": "magit.refresh",
+    "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/" 
   },
   {
     "key": "tab",
@@ -41,6 +41,17 @@
     "key": "k",
     "command": "-magit.discard-at-point"
   },
+  {
+    "key": "shift+k",
+    "command": "magit.discard-at-point",
+    "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
+  },
+  {
+    "key": "shift+l",
+    "command": "magit.logging",
+    "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
+  },
+
   // Conflicts with vsnetrw
   // {
   //   "key": "-",

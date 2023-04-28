@@ -14,6 +14,7 @@
     "editor.snippetSuggestions": "none",
     "editor.accessibilitySupport": "off",
     "editor.guides.indentation": false,
+    "editor.bracketPairColorization.enabled": false,
 
     // Workbench
     "workbench.colorTheme": "GitHub Dark Default",
@@ -144,6 +145,10 @@
             "commands": ["magit.status"]
         },
         {
+            "before": ["<leader>", "g", "r"],
+            "commands": ["editor.action.goToReferences"]
+        },
+        {
             "before": ["<leader>", "r", "n"],
             "commands": ["editor.action.rename"]
         },
@@ -198,6 +203,7 @@
     "zls.warn_style": true,
     "zls.check_for_update": false,
     "write-good.only-lint-on-save": null,
+    "emmet.showExpandedAbbreviation": "never",
     "Lua.telemetry.enable": false,
     "calva.showCalvaSaysOnStart": false,
     "calva.prettyPrintingOptions": {
