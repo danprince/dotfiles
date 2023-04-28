@@ -25,6 +25,10 @@ nnoremap [q :cprev<CR>
 nnoremap ]q :cnext<CR>
 nnoremap - :E<CR>
 nnoremap _ :Re<CR>
+nnoremap j gj
+nnoremap k gk
+nnoremap $ g$
+nnoremap 0 g0
 
 let g:netrw_banner = 0
 let g:netrw_list_hide = '^\.\+/$'
