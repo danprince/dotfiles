@@ -14,15 +14,10 @@ ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
 ln -sf $DOTFILES/.gitconfig ~/.gitconfig
 ln -sf $DOTFILES/.gitignore ~/.gitignore.global
 
-case $(uname -s) in
-  Darwin*)
-    VSCODE_DIR=$HOME/Library/Application\ Support/Code/User
-  ;;
-  *)
-    VSCODE_DIR=$HOME/.config/Code/User
-  ;;
-esac
+VSCODE_DIR=$HOME/Library/Application\ Support/Code/User
 
-ln -sf $DOTFILES/vscode/settings.json "$VSCODE_DIR/settings.json"
-ln -sf $DOTFILES/vscode/keybindings.json "$VSCODE_DIR/keybindings.json"
+if [[ -d $VSCODE_DIR ]]; then
+  ln -sf $DOTFILES/vscode/settings.json "$VSCODE_DIR/settings.json"
+  ln -sf $DOTFILES/vscode/keybindings.json "$VSCODE_DIR/keybindings.json"
+fi
 
